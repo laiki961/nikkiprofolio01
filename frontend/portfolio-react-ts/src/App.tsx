@@ -3,14 +3,15 @@ import logo from "./logo.svg";
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Pages/LandingPage/Root";
-import ErrorPage from "./Pages/ErrorPage/Error";
+import ErrorPage from "./Layouts/components/ErrorPage/Error";
+import { LandingPage } from "./Pages/LandingPage/LandingPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-    id: "root",
+    children: [{ index: true, element: <LandingPage /> }],
   },
 ]);
 

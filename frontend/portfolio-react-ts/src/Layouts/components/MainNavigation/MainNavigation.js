@@ -1,12 +1,10 @@
 import { NavLink } from "react-router-dom";
-// import { Container } from "react-bootstrap";
 import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
   return (
     <div id={classes["main-nav"]}>
-      {/* <Container> */}
-      <header className={`${classes["nav-header"]} container`}>
+      <header className={`${classes["nav-header"]} container-sm`}>
         <nav>
           <ul id={classes["main-nav-list"]}>
             <li>
@@ -53,7 +51,6 @@ function MainNavigation() {
           </ul>
         </nav>
       </header>
-      {/* </Container> */}
     </div>
   );
 }

@@ -5,7 +5,7 @@ import {
   useNavigation,
   useSubmit,
 } from "react-router-dom";
-import MainNavigation from "../../components/MainNavigation/MainNavigation";
+import MainNavigation from "../../Layouts/components/MainNavigation/MainNavigation";
 // import { getTokenDuration } from "../util/auth";
 
 function RootLayout() {
