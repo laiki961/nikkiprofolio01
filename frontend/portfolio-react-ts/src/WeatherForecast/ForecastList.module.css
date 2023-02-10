@@ -1,0 +1,12 @@
+.fiveDaysForecast {
+    background-color: rgba(247, 177, 48, 0.82);
+    position: relative;
+    border-radius: 1em;
+}
+
+.forecast-city {
+    text-align: center;
+    font-size: 30px;
+    padding: 1rem;
+    color: black;
+}

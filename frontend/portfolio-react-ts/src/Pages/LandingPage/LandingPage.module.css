@@ -1,0 +1,9 @@
+.col-image-left {
+  background-image: url("../../eCommerce/Images/eCommerce.jpg");
+  height: 25em !important;
+}
+
+.col-image-right {
+  background-image: url("../../LibraryApp/Images/library.jpeg");
+  height: 25em !important;
+}

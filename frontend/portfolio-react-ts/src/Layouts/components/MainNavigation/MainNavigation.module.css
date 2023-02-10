@@ -1,0 +1,27 @@
+#main-nav {
+  background-color: #26272b;
+}
+
+.nav-header {
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+#main-nav-list {
+  display: flex;
+  gap: 1rem;
+  padding-left: 0;
+  margin-bottom: 0;
+}
+
+#main-nav-list a {
+  text-decoration: none;
+  color: var(--color-primary-600);
+}
+
+#main-nav-list a:hover,
+#main-nav-list a.active {
+  font-weight: bolder;
+  color: var(--color-primary-900);
+}
