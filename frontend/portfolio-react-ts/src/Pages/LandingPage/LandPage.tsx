@@ -1,4 +1,4 @@
-import Footer from "./components/Footer/Footer";
+import Footer from "../../Layouts/Footer/Footer";
 
 export const HomePage = () => {
   return (

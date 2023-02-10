@@ -1,5 +1,4 @@
 import "./Footer.css";
-import "font-awesome/css/font-awesome.min.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub, faLinkedinIn } from "@fortawesome/free-brands-svg-icons";
 import { Link } from "react-router-dom";
