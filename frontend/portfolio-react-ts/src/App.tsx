@@ -5,13 +5,28 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Pages/LandingPage/Root";
 import ErrorPage from "./Layouts/components/ErrorPage/Error";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
+import OpenWeather from "./WeatherForecast/OpenWeather";
+import ForcastWeather from "./WeatherForecast/ForecastWeather";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     errorElement: <ErrorPage />,
-    children: [{ index: true, element: <LandingPage /> }],
+    children: [
+      { index: true, element: <LandingPage /> },
+      {
+        path: "weather",
+        element: <OpenWeather />,
+        children: [
+          { index: true, element: <OpenWeather /> },
+          {
+            path: ":city",
+            element: <ForcastWeather />,
+          },
+        ],
+      },
+    ],
   },
 ]);
 

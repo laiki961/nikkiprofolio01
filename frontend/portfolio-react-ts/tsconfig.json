@@ -17,5 +17,8 @@
     "jsx": "react-jsx"
   },
   "include": ["src"],
-  "exclude": ["src/Layouts/components/MainNavigation/MainNavigation.js"]
+  "exclude": [
+    "src/Layouts/components/MainNavigation/MainNavigation.js",
+    "scr/WeatherForecast"
+  ]
 }

@@ -20,12 +20,12 @@ function MainNavigation() {
             </li>
             <li>
               <NavLink
-                to='/projects'
+                to='/weather'
                 className={({ isActive }) =>
                   isActive ? classes.active : undefined
                 }
               >
-                Projects
+                Weather Forecast
               </NavLink>
             </li>
             {/* <li>
