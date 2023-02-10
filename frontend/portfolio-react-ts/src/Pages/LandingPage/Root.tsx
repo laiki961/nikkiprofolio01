@@ -1,9 +1,9 @@
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import {
   Outlet,
-  useLoaderData,
-  useNavigation,
-  useSubmit,
+  // useLoaderData,
+  // useNavigation,
+  // useSubmit,
 } from "react-router-dom";
 import MainNavigation from "../../Layouts/components/MainNavigation/MainNavigation";
 // import { getTokenDuration } from "../util/auth";
@@ -33,7 +33,6 @@ function RootLayout() {
     <>
       <MainNavigation />
       <main>
-        {/* {navigation.state === 'loading' && <p>Loading...</p>} */}
         <Outlet />
       </main>
     </>

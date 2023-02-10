@@ -9,9 +9,11 @@ import Input from "./ui/Input";
 import Button from "./ui/Button";
 import Loading from "../Layouts/components/Loading/Loading";
 import ForecastList from "./ForecastList";
+
 const OpenWeather = () => {
   const [forecasts, setForecasts] = useState([]);
   const { isLoading, error, sendRequest: fetchWeather } = useHttp();
+  const [httpError, setHttpError] = useState(null);
   const isNotEmpty = (value) => value.trim() !== "";
 
   const {
@@ -51,7 +53,6 @@ const OpenWeather = () => {
           },
         });
       }
-      console.log(loadedWeatherForecast);
       setForecasts([location, loadedWeatherForecast]);
     };
 
@@ -62,6 +63,10 @@ const OpenWeather = () => {
       },
       responseWeatherData
     );
+    console.log(error);
+    setHttpError(error);
+    // error && setHttpError(`${error}: Please enter a valid city`);
+    // setHttpError(`${error}: Please enter a valid city`);
     resetCityInput();
   };
 
@@ -93,20 +98,26 @@ const OpenWeather = () => {
         {cityHasError && (
           <p className={classes["error-text"]}>City must not be empty.</p>
         )}
+        {httpError && (
+          <p className={classes["error-text"]}>
+            {httpError} <br />
+            Please enter a valid city.
+          </p>
+        )}
         <Button type='submit'>Get Weather</Button>
       </form>
     </>
   );
 
   let content = <p>There is no forecasts data yet.</p>;
-  if (error) {
-    content = <p>{error}</p>;
-  }
   if (forecasts.length === 0) {
     content = defaultUi;
   }
   if (forecasts.length > 0) {
     content = <ForecastList forecasts={forecasts} />;
+  }
+  if (isLoading) {
+    <>{loadingClasess}</>;
   }
 
   return (
@@ -117,7 +128,7 @@ const OpenWeather = () => {
         onBlur={cityBlurHandler}
         value={cityValue}
       ></Header>
-      <div className={classes.main}>{isLoading ? loadingClasess : content}</div>
+      <div className={classes.main}>{content}</div>
     </section>
   );
 };

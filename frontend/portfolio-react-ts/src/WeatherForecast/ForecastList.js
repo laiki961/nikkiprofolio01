@@ -4,8 +4,6 @@ import ForecastWeather from "./ForecastWeather";
 import Loading from "../Layouts/components/Loading/Loading";
 
 const ForecastList = (props) => {
-  console.log(`ForecastList: props`);
-
   const [filteredData, setFilteredData] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -34,7 +32,6 @@ const ForecastList = (props) => {
   ];
 
   const formatDataHandler = useCallback(() => {
-    console.log(`formatDataHandler`);
     setIsLoading(true);
     let filteredForecasts = [];
     const forecastsCopy = [];
@@ -42,7 +39,6 @@ const ForecastList = (props) => {
     const dd = String(todayDate.getDate()).padStart(2, "0");
 
     for (const key in props.forecasts[1]) {
-      // console.log(props.forecasts[1][key]);
       const unix_timeStamp_ms = +props.forecasts[1][key].unix_timeStamp * 1000;
       const date = new Date(unix_timeStamp_ms);
       const formattedDate = date.getDate(unix_timeStamp_ms);
@@ -75,7 +71,6 @@ const ForecastList = (props) => {
               .indexOf(value.formattedDate.date) === index
         );
     }
-    console.log(filteredForecasts); // done
     setFilteredData([props.forecasts[0], filteredForecasts]);
     setIsLoading(false);
   }, [props.forecasts, setFilteredData]);
@@ -92,9 +87,6 @@ const ForecastList = (props) => {
   }
 
   if (filteredData.length > 1) {
-    console.log(`filteredData`);
-    console.log(filteredData);
-
     content = (
       <>
         <div className={classes["forecast-city"]}>
