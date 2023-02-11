@@ -22,7 +22,10 @@ const router = createBrowserRouter([
       {
         path: "library",
         element: <LibraryHomePage />,
-        children: [{ index: true, element: <LibraryHomePage /> }],
+        children: [
+          { index: true, element: <LibraryHomePage /> },
+          // { path: "/search" },
+        ],
       },
       {
         path: "ecommerce",
