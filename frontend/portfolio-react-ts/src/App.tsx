@@ -1,11 +1,11 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./Pages/LandingPage/Root";
+import RootLayout from "./Layouts/Pages/LandingPage/Root";
 import ErrorPage from "./Layouts/components/ErrorPage/Error";
-import { LandingPage } from "./Pages/LandingPage/LandingPage";
+import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
 import OpenWeather from "./WeatherForecast/OpenWeather";
-import ForcastWeather from "./WeatherForecast/ForecastWeather";
-import { element } from "prop-types";
+import ECommerceLandingPage from "./eCommerce/Pages/LandingPage/eCommerceHomePage";
+import LibraryHomePage from "./LibraryApp/Pages/LibraryHomePage";
 
 const router = createBrowserRouter([
   {
@@ -19,10 +19,16 @@ const router = createBrowserRouter([
         element: <OpenWeather />,
         children: [{ index: true, element: <OpenWeather /> }],
       },
-      // {
-      //   path: "library"
-      //   element:
-      // }
+      {
+        path: "library",
+        element: <LibraryHomePage />,
+        children: [{ index: true, element: <LibraryHomePage /> }],
+      },
+      {
+        path: "ecommerce",
+        element: <ECommerceLandingPage />,
+        children: [{ index: true, element: <ECommerceLandingPage /> }],
+      },
     ],
   },
 ]);
