@@ -40,26 +40,26 @@ function MainNavigation() {
                 Weather Forecast
               </NavLink>
             </li>
-            {/* <li>
-                            <NavLink
-                                to="/projects/todolist"
-                                className={({ isActive }) =>
-                                    isActive ? classes.active : undefined
-                                }
-                            >
-                                ToDoList
-                            </NavLink>
-                        </li>
-                        <li>
-                            <NavLink
-                                to="/projects/weather"
-                                className={({ isActive }) =>
-                                    isActive ? classes.active : undefined
-                                }
-                            >
-                                Weather
-                            </NavLink>
-                        </li> */}
+            <li>
+              <NavLink
+                to='/library'
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                Library
+              </NavLink>
+            </li>
+            <li>
+              <NavLink
+                to='/ecommerce'
+                className={({ isActive }) =>
+                  isActive ? classes.active : undefined
+                }
+              >
+                eCommerce
+              </NavLink>
+            </li>
           </ul>
         </nav>
       </header>

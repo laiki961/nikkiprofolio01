@@ -5,7 +5,7 @@ import ErrorPage from "./Layouts/components/ErrorPage/Error";
 import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
 import OpenWeather from "./WeatherForecast/OpenWeather";
 import ECommerceLandingPage from "./eCommerce/Pages/LandingPage/eCommerceHomePage";
-import LibraryHomePage from "./LibraryApp/Pages/LibraryHomePage";
+import LibraryHomePage from "./LibraryApp/Pages/LibraryHomePage/HomePage";
 
 const router = createBrowserRouter([
   {
