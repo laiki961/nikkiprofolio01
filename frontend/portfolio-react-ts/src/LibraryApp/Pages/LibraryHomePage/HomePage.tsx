@@ -9,8 +9,8 @@ const HomePage = () => {
     <section id={classes["library-section"]}>
       <ExploreTopBooks />
       <Carousel />
-      {/* <Heros /> */}
-      {/* <LibraryServices /> */}
+      <Heros />
+      <LibraryServices />
     </section>
   );
 };
