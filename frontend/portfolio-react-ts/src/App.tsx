@@ -1,7 +1,7 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Layouts/Pages/LandingPage/Root";
-import ErrorPage from "./Layouts/components/ErrorPage/Error";
+import ErrorPage from "./Layouts/components/Error/Error";
 import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
 import OpenWeather from "./WeatherForecast/OpenWeather";
 import ECommerceLandingPage from "./eCommerce/Pages/LandingPage/eCommerceHomePage";
