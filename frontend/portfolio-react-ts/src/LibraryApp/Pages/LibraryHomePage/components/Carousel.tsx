@@ -4,6 +4,7 @@ import BookModel from "../../../Models/BookModel";
 // import { SpinnerLoading } from "../../Utils/SpinnerLoading";
 import Loading from "../../../../Layouts/components/Loading/Loading";
 import { Link } from "react-router-dom";
+import classes from "../HomePage.module.css";
 
 export const Carousel = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -125,8 +126,8 @@ export const Carousel = () => {
           <ReturnBook book={books[7]} key={books[7].id} />
         </div>
       </div>
-      <div className='homepage-carousel-title mt-3'>
-        <Link className='btn btn-outline-secondary btn-lg' to='/search'>
+      <div className={`${classes["homepage-carousel-title"]} mt-3`}>
+        <Link className='btn btn-outline-secondary btn-lg' to='/library/search'>
           View More
         </Link>
       </div>

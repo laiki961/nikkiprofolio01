@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { config } from "../config";
+import { config } from "../lib/config";
 import classes from "./OpenWeather.module.css";
 import useInput from "./hooks/use-input";
 import useHttp from "../hooks/use-http";
