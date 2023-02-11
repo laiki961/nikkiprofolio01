@@ -5,6 +5,7 @@ import ErrorPage from "./Layouts/components/ErrorPage/Error";
 import { LandingPage } from "./Pages/LandingPage/LandingPage";
 import OpenWeather from "./WeatherForecast/OpenWeather";
 import ForcastWeather from "./WeatherForecast/ForecastWeather";
+import { element } from "prop-types";
 
 const router = createBrowserRouter([
   {
@@ -16,14 +17,12 @@ const router = createBrowserRouter([
       {
         path: "weather",
         element: <OpenWeather />,
-        children: [
-          { index: true, element: <OpenWeather /> },
-          {
-            path: ":city",
-            element: <ForcastWeather />,
-          },
-        ],
+        children: [{ index: true, element: <OpenWeather /> }],
       },
+      // {
+      //   path: "library"
+      //   element:
+      // }
     ],
   },
 ]);

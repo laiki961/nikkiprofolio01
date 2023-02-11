@@ -2,6 +2,18 @@ import { NavLink } from "react-router-dom";
 import classes from "./MainNavigation.module.css";
 
 function MainNavigation() {
+  let prevScrollpos = window.pageYOffset;
+
+  window.onscroll = function () {
+    var currentScrollPos = window.pageYOffset;
+    if (prevScrollpos > currentScrollPos) {
+      document.getElementById(classes["main-nav"]).style.top = "0";
+    } else {
+      document.getElementById(classes["main-nav"]).style.top = "-50px";
+    }
+    prevScrollpos = currentScrollPos;
+  };
+
   return (
     <div id={classes["main-nav"]}>
       <header className={`${classes["nav-header"]} container-sm`}>
