@@ -1,2 +1,11 @@
-package com.nikki.portfoliospingboot01.dao;public interface BookRepository {
+package com.nikki.portfoliospingboot01.dao;
+
+import com.nikki.portfoliospingboot01.entity.Book;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.web.bind.annotation.RequestParam;
+
+public interface BookRepository extends JpaRepository<Book, Long> {
+    Page<Book> findByTitleContaining(@RequestParam("title")String title, Pageable pageable);
 }
