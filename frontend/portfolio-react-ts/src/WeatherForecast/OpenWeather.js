@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-
+import { config } from "../config";
 import classes from "./OpenWeather.module.css";
 import useInput from "./hooks/use-input";
 import useHttp from "../hooks/use-http";
@@ -56,7 +56,7 @@ const OpenWeather = () => {
       setForecasts([location, loadedWeatherForecast]);
     };
 
-    const apiKey = "91a74aded71384131bb26971504878b8";
+    const apiKey = config.OpenWeatherApiKey;
     fetchWeather(
       {
         url: `https://api.openweathermap.org/data/2.5/forecast?q=${cityValue}&appid=${apiKey}&units=metric`,
