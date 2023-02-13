@@ -32,6 +32,7 @@ code {
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
 
+  --color-white: white;
   --color-gray-100: #f4f3f1;
   --color-gray-200: #dddbd8;
   --color-gray-300: #ccc9c6;
@@ -57,4 +58,9 @@ ul {
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+a {
+  text-decoration: none;
+  color: var(--color-white);
 }

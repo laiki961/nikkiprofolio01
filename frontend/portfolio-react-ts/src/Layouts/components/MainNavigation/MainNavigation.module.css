@@ -1,5 +1,11 @@
 #main-nav {
   background-color: #26272b;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  display: block;
+  transition: top 0.3s;
+  z-index: 100;
 }
 
 .nav-header {

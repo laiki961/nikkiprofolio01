@@ -6,7 +6,6 @@ const useHttp = () => {
 
   const sendRequest = useCallback(async (requestConfig, applyData) => {
     setIsLoading(true);
-    console.log("You are now using useHttp hook");
     setError(null);
     try {
       const response = await fetch(requestConfig.url, {
@@ -27,9 +26,14 @@ const useHttp = () => {
     setIsLoading(false);
   }, []);
 
+  const resetErrorHandler = () => {
+    setError(false);
+  };
+
   return {
     isLoading,
     error,
+    resetErrorHandler,
     sendRequest,
   };
 };

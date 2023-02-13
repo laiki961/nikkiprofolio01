@@ -1,10 +1,20 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import RootLayout from "./Pages/LandingPage/Root";
-import ErrorPage from "./Layouts/components/ErrorPage/Error";
-import { LandingPage } from "./Pages/LandingPage/LandingPage";
-import OpenWeather from "./WeatherForecast/OpenWeather";
-import ForcastWeather from "./WeatherForecast/ForecastWeather";
+import RootLayout from "./Layouts/Pages/LandingPage/Root";
+import ErrorPage from "./Layouts/components/Error/Error";
+import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
+import ECommerceLandingPage from "./Projects/eCommerce/Pages/LandingPage/eCommerceHomePage";
+import LibraryHomePage from "./Projects/LibraryApp/Pages/LibraryHomePage/HomePage";
+// import Details from "./WeatherForecast/pages/Details";
+import Forecasts from "./Projects/WeatherForecast/pages/Forecasts";
+import WeatherRootLayout from "./Projects/WeatherForecast/pages/Root";
+import Home from "./Projects/WeatherForecast/pages/Home";
+import LibraryRootLayout from "./Projects/LibraryApp/Pages/Root";
+import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
+import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
+import { oktaConfig } from "./lib/config";
+import { LoginCallback } from "@okta/okta-react";
+import LoginWidget from "./Auth/LoginWidget";
 
 const router = createBrowserRouter([
   {
@@ -14,15 +24,43 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <LandingPage /> },
       {
+        path: "/login",
+        element: <LoginWidget config={oktaConfig} />,
+      },
+      { path: "/callback", element: <LoginCallback /> },
+      {
         path: "weather",
-        element: <OpenWeather />,
+        element: <WeatherRootLayout />,
         children: [
-          { index: true, element: <OpenWeather /> },
           {
-            path: ":city",
-            element: <ForcastWeather />,
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: ":cityName",
+            id: "forecast-weather",
+            children: [
+              {
+                index: true,
+                element: <Forecasts />,
+              },
+            ],
           },
         ],
+      },
+      {
+        path: "library",
+        element: <LibraryRootLayout />,
+        children: [
+          { index: true, element: <LibraryHomePage /> },
+          { path: "/library/search", element: <SearchBooksPage /> },
+          { path: "/library/checkout/:bookId", element: <BookCheckoutPage /> },
+        ],
+      },
+      {
+        path: "ecommerce",
+        element: <ECommerceLandingPage />,
+        children: [{ index: true, element: <ECommerceLandingPage /> }],
       },
     ],
   },
@@ -32,24 +70,3 @@ function App() {
   return <RouterProvider router={router} />;
 }
 export default App;
-
-// export function App() {
-//   return (
-//     <div className='App'>
-//       <header className='App-header'>
-//         <img src={logo} className='App-logo' alt='logo' />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className='App-link'
-//           href='https://reactjs.org'
-//           target='_blank'
-//           rel='noopener noreferrer'
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }

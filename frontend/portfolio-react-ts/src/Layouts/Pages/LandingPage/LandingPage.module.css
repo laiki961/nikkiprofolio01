@@ -1,0 +1,18 @@
+.col-image-weather {
+  background-image: url("../../../Projects/WeatherForecast/Images/weather.png");
+  height: 25em !important;
+}
+
+.col-image-ecomerce {
+  background-image: url("../../../Projects/eCommerce/Images/eCommerce.jpg");
+  height: 25em !important;
+}
+
+.col-image-library {
+  background-image: url("../../../Projects/LibraryApp/Images/library.jpeg");
+  height: 25em !important;
+}
+
+.text-third {
+  font-size: small;
+}
