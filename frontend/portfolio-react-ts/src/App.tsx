@@ -3,9 +3,12 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Layouts/Pages/LandingPage/Root";
 import ErrorPage from "./Layouts/components/Error/Error";
 import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
-import OpenWeather from "./WeatherForecast/OpenWeather";
 import ECommerceLandingPage from "./eCommerce/Pages/LandingPage/eCommerceHomePage";
 import LibraryHomePage from "./LibraryApp/Pages/LibraryHomePage/HomePage";
+// import Details from "./WeatherForecast/pages/Details";
+import Forecasts from "./WeatherForecast/pages/Forecasts";
+import WeatherRootLayout from "./WeatherForecast/pages/Root";
+import Home from "./WeatherForecast/pages/Home";
 
 const router = createBrowserRouter([
   {
@@ -16,16 +19,28 @@ const router = createBrowserRouter([
       { index: true, element: <LandingPage /> },
       {
         path: "weather",
-        element: <OpenWeather />,
-        children: [{ index: true, element: <OpenWeather /> }],
+        element: <WeatherRootLayout />,
+        children: [
+          {
+            index: true,
+            element: <Home />,
+          },
+          {
+            path: ":cityName",
+            id: "forecast-weather",
+            children: [
+              {
+                index: true,
+                element: <Forecasts />,
+              },
+            ],
+          },
+        ],
       },
       {
         path: "library",
         element: <LibraryHomePage />,
-        children: [
-          { index: true, element: <LibraryHomePage /> },
-          // { path: "/search" },
-        ],
+        children: [{ index: true, element: <LibraryHomePage /> }],
       },
       {
         path: "ecommerce",
@@ -40,24 +55,3 @@ function App() {
   return <RouterProvider router={router} />;
 }
 export default App;
-
-// export function App() {
-//   return (
-//     <div className='App'>
-//       <header className='App-header'>
-//         <img src={logo} className='App-logo' alt='logo' />
-//         <p>
-//           Edit <code>src/App.tsx</code> and save to reload.
-//         </p>
-//         <a
-//           className='App-link'
-//           href='https://reactjs.org'
-//           target='_blank'
-//           rel='noopener noreferrer'
-//         >
-//           Learn React
-//         </a>
-//       </header>
-//     </div>
-//   );
-// }

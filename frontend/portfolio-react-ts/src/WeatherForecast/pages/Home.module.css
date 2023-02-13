@@ -24,7 +24,6 @@
   color: white;
 }
 
-/* Havent fixed the below css */
 .invalid div input {
   border: 1px solid #b40e0e;
   background-color: #fddddd;

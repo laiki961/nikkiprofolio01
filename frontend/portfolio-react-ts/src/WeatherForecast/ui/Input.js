@@ -14,7 +14,7 @@ const Input = React.forwardRef((props, ref) => {
         value={props.value}
         onChange={props.onChange}
         onBlur={props.onBlur}
-        placeholder='e.g. Toronto'
+        placeholder='Please enter a city'
       />
     </div>
   );
