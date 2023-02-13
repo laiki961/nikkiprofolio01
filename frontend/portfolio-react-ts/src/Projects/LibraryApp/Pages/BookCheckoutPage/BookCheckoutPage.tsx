@@ -144,32 +144,32 @@ export const BookCheckoutPage = () => {
   //   });
   // }, [authState]);
 
-  // useEffect(() => {
-  //   const fetchUserCurrentLoansCount = async () => {
-  //     if (authState && authState.isAuthenticated) {
-  //       const url = `http://localhost:8080/api/books/secure/currentloans/count`;
-  //       const requestOptions = {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${authState.accessToken?.accessToken}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       };
-  //       const currentLoansCountResponse = await fetch(url, requestOptions);
-  //       if (!currentLoansCountResponse.ok) {
-  //         throw new Error("Something went wrong!");
-  //       }
-  //       const currentLoansCountResponseJson =
-  //         await currentLoansCountResponse.json();
-  //       setCurrentLoansCount(currentLoansCountResponseJson);
-  //     }
-  //     setIsLoadingCurrentLoansCount(false);
-  //   };
-  //   fetchUserCurrentLoansCount().catch((error: any) => {
-  //     setIsLoadingCurrentLoansCount(false);
-  //     setHttpError(error.message);
-  //   });
-  // }, [authState, isCheckedOut]);
+  useEffect(() => {
+    const fetchUserCurrentLoansCount = async () => {
+      if (authState && authState.isAuthenticated) {
+        const url = `http://localhost:8080/api/books/secure/currentloans/count`;
+        const requestOptions = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${authState.accessToken?.accessToken}`,
+            "Content-Type": "application/json",
+          },
+        };
+        const currentLoansCountResponse = await fetch(url, requestOptions);
+        if (!currentLoansCountResponse.ok) {
+          throw new Error("Something went wrong!");
+        }
+        const currentLoansCountResponseJson =
+          await currentLoansCountResponse.json();
+        setCurrentLoansCount(currentLoansCountResponseJson);
+      }
+      setIsLoadingCurrentLoansCount(false);
+    };
+    fetchUserCurrentLoansCount().catch((error: any) => {
+      setIsLoadingCurrentLoansCount(false);
+      setHttpError(error.message);
+    });
+  }, [authState, isCheckedOut]);
 
   // useEffect(() => {
   //   const fetchUserCheckedOutBook = async () => {
