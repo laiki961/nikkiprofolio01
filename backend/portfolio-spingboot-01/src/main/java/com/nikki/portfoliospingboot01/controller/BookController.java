@@ -2,6 +2,7 @@ package com.nikki.portfoliospingboot01.controller;
 
 import com.nikki.portfoliospingboot01.entity.Book;
 import com.nikki.portfoliospingboot01.service.BookService;
+import com.nikki.portfoliospingboot01.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,7 +19,7 @@ public class BookController {
 
     @GetMapping("/secure/currentloans/count")
     public int currentLoansCount(@RequestHeader(value = "Authorization") String token) {
-        String userEmail = com.luv2code.springbootlibrary.utils.ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
         return bookService.currentLoansCount(userEmail);
     }
 
@@ -26,7 +27,7 @@ public class BookController {
     @GetMapping("/secure/ischeckedout/byuser")
     public Boolean checkoutBookByUser(@RequestHeader(value = "Authorization") String token,
                                       @RequestParam Long bookId) {
-        String userEmail = com.luv2code.springbootlibrary.utils.ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
         return bookService.checkoutBookByUser(userEmail, bookId);
     }
 

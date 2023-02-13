@@ -1,4 +1,4 @@
-package com.luv2code.springbootlibrary.utils;
+package com.nikki.portfoliospingboot01.utils;
 
 import java.util.Base64;
 import java.util.HashMap;
