@@ -114,7 +114,7 @@ export const SearchBooksPage = () => {
   return (
     <div className={classes["search-book-page"]}>
       <div className='container'>
-        <div>
+        <div className='pb-5'>
           <div className='row mt-5'>
             <div className='col-6'>
               <div className='d-flex'>
@@ -196,7 +196,7 @@ export const SearchBooksPage = () => {
               <h3>Can't find what you are looking for?</h3>
               <a
                 type='button'
-                className='btn main-color btn-md px-4 me-md-2 fw-bold text-white'
+                className='btn btn-secondary btn-md px-4 me-md-2 fw-bold text-white'
               >
                 Library Services
               </a>

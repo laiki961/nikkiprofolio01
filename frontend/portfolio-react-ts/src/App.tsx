@@ -9,6 +9,8 @@ import LibraryHomePage from "./LibraryApp/Pages/LibraryHomePage/HomePage";
 import Forecasts from "./WeatherForecast/pages/Forecasts";
 import WeatherRootLayout from "./WeatherForecast/pages/Root";
 import Home from "./WeatherForecast/pages/Home";
+import LibraryRootLayout from "./LibraryApp/Pages/Root";
+import { SearchBooksPage } from "./LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +27,8 @@ const router = createBrowserRouter([
             index: true,
             element: <Home />,
           },
+          //   { path: "/login",
+          //  },
           {
             path: ":cityName",
             id: "forecast-weather",
@@ -39,8 +43,12 @@ const router = createBrowserRouter([
       },
       {
         path: "library",
-        element: <LibraryHomePage />,
-        children: [{ index: true, element: <LibraryHomePage /> }],
+        element: <LibraryRootLayout />,
+        children: [
+          { index: true, element: <LibraryHomePage /> },
+          { path: "/library/search", element: <SearchBooksPage /> },
+          { path: "/library/checkout/:bookId" },
+        ],
       },
       {
         path: "ecommerce",

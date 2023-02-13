@@ -13,7 +13,7 @@ export const ExploreTopBooks = () => {
           <Link
             type='button'
             className='btn btn-outline-secondary btn-lg text-white'
-            to='/search'
+            to='/library/search'
           >
             Explore top books
           </Link>
