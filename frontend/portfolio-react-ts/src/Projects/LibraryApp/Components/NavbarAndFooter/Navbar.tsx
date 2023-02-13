@@ -18,7 +18,9 @@ export const Navbar = () => {
   return (
     <nav className='navbar navbar-expand-lg text-warning bg-dark py-3'>
       <div className='container-fluid'>
-        <span className='navbar-brand'>Library</span>
+        <NavLink className='nav-link text-info' to='/library'>
+          <span className='navbar-brand'>Library</span>
+        </NavLink>
         <button
           className='navbar-toggler'
           type='button'
@@ -33,12 +35,7 @@ export const Navbar = () => {
         <div className='collapse navbar-collapse' id='navbarNavDropdown'>
           <ul className='navbar-nav'>
             <li className='nav-item'>
-              <NavLink className='nav-link text-info' to='/home'>
-                Home
-              </NavLink>
-            </li>
-            <li className='nav-item'>
-              <NavLink className='nav-link text-info' to='/search'>
+              <NavLink className='nav-link text-info' to='/library/search'>
                 Search Books
               </NavLink>
             </li>
