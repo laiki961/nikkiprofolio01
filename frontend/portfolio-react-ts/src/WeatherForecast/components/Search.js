@@ -34,6 +34,9 @@ const Search = ({ className }) => {
       navigate("/weather");
     } else {
       onFetch(cityValue);
+      if (error) {
+        navigate("/weather");
+      }
       navigate(`/weather/${cityValue.toLowerCase()}`);
     }
     resetCityInput();

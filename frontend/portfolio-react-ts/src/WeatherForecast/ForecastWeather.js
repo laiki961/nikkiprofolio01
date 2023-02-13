@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import classes from "./ForecastWeather.module.css";
-// import WeatherDetails from './WeatherDetails';
 import WeatherDetailsModal from "./ui/Modal";
 
 const ForcastWeather = (props) => {
