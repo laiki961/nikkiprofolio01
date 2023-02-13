@@ -1,8 +1,22 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { useOktaAuth } from "@okta/okta-react";
 import classes from "./MainNavigation.module.css";
+import Loading from "../Loading/Loading";
 
 function MainNavigation() {
   let prevScrollpos = window.pageYOffset;
+
+  const { oktaAuth, authState } = useOktaAuth();
+
+  if (!authState) {
+    return <Loading />;
+  }
+
+  const handleLogout = async () => {
+    oktaAuth.signOut();
+  };
+
+  console.log(authState);
 
   window.onscroll = function () {
     var currentScrollPos = window.pageYOffset;
@@ -60,6 +74,28 @@ function MainNavigation() {
                 eCommerce
               </NavLink>
             </li>
+            {/* ADDED */}
+            {!authState.isAuthenticated ? (
+              <li className='nav-item'>
+                <Link
+                  type='button'
+                  className='btn btn-outline-light'
+                  to='/login'
+                >
+                  Sign in
+                </Link>
+              </li>
+            ) : (
+              <li>
+                <button
+                  className='btn btn-outline-light'
+                  onClick={handleLogout}
+                >
+                  Logout
+                </button>
+              </li>
+            )}
+            {/* ADDED END*/}
           </ul>
         </nav>
       </header>

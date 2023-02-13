@@ -44,8 +44,8 @@ export const SearchBook: React.FC<{ book: BookModel }> = (props) => {
         </div>
         <div className='col-md-4 d-flex justify-content-center align-items-center'>
           <Link
-            className='btn btn-md main-color text-white'
-            to={`/checkout/${props.book.id}`}
+            className='btn btn-md btn-secondary'
+            to={`/library/checkout/${props.book.id}`}
           >
             View Details
           </Link>

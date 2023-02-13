@@ -46,7 +46,6 @@ export const Carousel = () => {
   }, []);
 
   if (isLoading) {
-    // return <SpinnerLoading />;
     return <Loading />;
   }
 

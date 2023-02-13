@@ -2,7 +2,7 @@ import classes from "../Library.module.css";
 import { useEffect, useState } from "react";
 import BookModel from "../../Models/BookModel";
 import { Pagination } from "../../Utils/Pagination";
-import { SpinnerLoading } from "../../Utils/SpinnerLoading";
+import Loading from "../../../../Layouts/components/Loading/Loading";
 import { SearchBook } from "./components/SearchBook";
 
 export const SearchBooksPage = () => {
@@ -63,7 +63,7 @@ export const SearchBooksPage = () => {
   }, [currentPage, searchUrl]);
 
   if (isLoading) {
-    return <SpinnerLoading />;
+    return <Loading />;
   }
 
   if (httpError) {

@@ -1,24 +1,24 @@
 import { Link, NavLink } from "react-router-dom";
 // import { useOktaAuth } from "@okta/okta-react";
-import { SpinnerLoading } from "../../Utils/SpinnerLoading";
+// import Loading from "../../../../Layouts/components/Loading/Loading";
 
 export const Navbar = () => {
   // const { oktaAuth, authState } = useOktaAuth();
 
   // if (!authState) {
-  //   return <SpinnerLoading />;
+  //   return <Loading />;
   // }
 
-  const handleLogout = async () => {
-    //  oktaAuth.signOut();
-  };
+  // const handleLogout = async () => {
+  //   oktaAuth.signOut();
+  // };
 
   // console.log(authState);
 
   return (
-    <nav className='navbar navbar-expand-lg text-warning bg-dark py-3'>
+    <nav className='navbar navbar-expand-lg text-warning bg-secondary py-3'>
       <div className='container-fluid'>
-        <NavLink className='nav-link text-info' to='/library'>
+        <NavLink className='nav-link text-white' to='/library'>
           <span className='navbar-brand'>Library</span>
         </NavLink>
         <button
@@ -35,19 +35,23 @@ export const Navbar = () => {
         <div className='collapse navbar-collapse' id='navbarNavDropdown'>
           <ul className='navbar-nav'>
             <li className='nav-item'>
-              <NavLink className='nav-link text-info' to='/library/search'>
+              <NavLink className='nav-link text-white' to='/library/search'>
                 Search Books
               </NavLink>
             </li>
           </ul>
-          <ul className='navbar-nav ms-auto'>
-            {/* {!authState.isAuthenticated ? ( */}
-            <li className='nav-item m-1'>
-              <Link type='button' className='btn btn-outline-light' to='/login'>
-                Sign in
-              </Link>
-            </li>
-            {/* ) : (
+          {/* <ul className='navbar-nav ms-auto'> */}
+          {/* {!authState.isAuthenticated ? (
+              <li className='nav-item m-1'>
+                <Link
+                  type='button'
+                  className='btn btn-outline-light'
+                  to='/login'
+                >
+                  Sign in
+                </Link>
+              </li>
+            ) : (
               <li>
                 <button
                   className='btn btn-outline-light'
@@ -57,7 +61,7 @@ export const Navbar = () => {
                 </button>
               </li>
             )} */}
-          </ul>
+          {/* </ul> */}
         </div>
       </div>
     </nav>

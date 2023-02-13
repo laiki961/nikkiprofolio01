@@ -4,7 +4,7 @@
   position: relative;
 }
 
-.main {
+.open-weather-container {
   text-align: center;
   padding: 10px;
   height: 200px;
@@ -19,7 +19,7 @@
   width: fit-content;
 }
 
-.open-weather .main .title {
+.open-weather .open-weather-container .title {
   font-size: 30px;
   color: white;
 }

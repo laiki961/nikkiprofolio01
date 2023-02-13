@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import BookModel from "../../Models/BookModel";
 import ReviewModel from "../../Models/ReviewModel";
-import { SpinnerLoading } from "../../Utils/SpinnerLoading";
+// import { SpinnerLoading } from "../../Utils/Loading";
+import Loading from "../../../../Layouts/components/Loading/Loading";
 import { StarsReview } from "../../Utils/StarsReview";
 import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
 import { LatestReviews } from "./LatestReviews";
@@ -36,7 +37,7 @@ export const BookCheckoutPage = () => {
   const [isCheckedOut, setIsCheckedOut] = useState(false);
   const [isLoadingBookCheckedOut, setIsLoadingBookCheckedOut] = useState(true);
 
-  const bookId = window.location.pathname.split("/")[2];
+  const bookId = window.location.pathname.split("/")[3];
 
   useEffect(() => {
     const fetchBook = async () => {
@@ -70,131 +71,131 @@ export const BookCheckoutPage = () => {
     });
   }, [isCheckedOut]);
 
-  useEffect(() => {
-    const fetchBookReviews = async () => {
-      const reviewUrl: string = `http://localhost:8080/api/reviews/search/findByBookId?bookId=${bookId}`;
+  // useEffect(() => {
+  //   const fetchBookReviews = async () => {
+  //     const reviewUrl: string = `http://localhost:8080/api/reviews/search/findByBookId?bookId=${bookId}`;
 
-      const responseReviews = await fetch(reviewUrl);
+  //     const responseReviews = await fetch(reviewUrl);
 
-      if (!responseReviews.ok) {
-        throw new Error("Something went wrong!");
-      }
+  //     if (!responseReviews.ok) {
+  //       throw new Error("Something went wrong!");
+  //     }
 
-      const responseJsonReviews = await responseReviews.json();
+  //     const responseJsonReviews = await responseReviews.json();
 
-      const responseData = responseJsonReviews._embedded.reviews;
+  //     const responseData = responseJsonReviews._embedded.reviews;
 
-      const loadedReviews: ReviewModel[] = [];
+  //     const loadedReviews: ReviewModel[] = [];
 
-      let weightedStarReviews: number = 0;
+  //     let weightedStarReviews: number = 0;
 
-      for (const key in responseData) {
-        loadedReviews.push({
-          id: responseData[key].id,
-          userEmail: responseData[key].userEmail,
-          date: responseData[key].date,
-          rating: responseData[key].rating,
-          book_id: responseData[key].bookId,
-          reviewDescription: responseData[key].reviewDescription,
-        });
-        weightedStarReviews = weightedStarReviews + responseData[key].rating;
-      }
+  //     for (const key in responseData) {
+  //       loadedReviews.push({
+  //         id: responseData[key].id,
+  //         userEmail: responseData[key].userEmail,
+  //         date: responseData[key].date,
+  //         rating: responseData[key].rating,
+  //         book_id: responseData[key].bookId,
+  //         reviewDescription: responseData[key].reviewDescription,
+  //       });
+  //       weightedStarReviews = weightedStarReviews + responseData[key].rating;
+  //     }
 
-      if (loadedReviews) {
-        const round = (
-          Math.round((weightedStarReviews / loadedReviews.length) * 2) / 2
-        ).toFixed(1);
-        setTotalStars(Number(round));
-      }
+  //     if (loadedReviews) {
+  //       const round = (
+  //         Math.round((weightedStarReviews / loadedReviews.length) * 2) / 2
+  //       ).toFixed(1);
+  //       setTotalStars(Number(round));
+  //     }
 
-      setReviews(loadedReviews);
-      setIsLoadingReview(false);
-    };
+  //     setReviews(loadedReviews);
+  //     setIsLoadingReview(false);
+  //   };
 
-    fetchBookReviews().catch((error: any) => {
-      setIsLoadingReview(false);
-      setHttpError(error.message);
-    });
-  }, [isReviewLeft]);
+  //   fetchBookReviews().catch((error: any) => {
+  //     setIsLoadingReview(false);
+  //     setHttpError(error.message);
+  //   });
+  // }, [isReviewLeft]);
 
-  useEffect(() => {
-    const fetchUserReviewBook = async () => {
-      if (authState && authState.isAuthenticated) {
-        const url = `http://localhost:8080/api/reviews/secure/user/book/?bookId=${bookId}`;
-        const requestOptions = {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${authState.accessToken?.accessToken}`,
-            "Content-Type": "application/json",
-          },
-        };
-        const userReview = await fetch(url, requestOptions);
-        if (!userReview.ok) {
-          throw new Error("Something went wrong");
-        }
-        const userReviewResponseJson = await userReview.json();
-        setIsReviewLeft(userReviewResponseJson);
-      }
-      setIsLoadingUserReview(false);
-    };
-    fetchUserReviewBook().catch((error: any) => {
-      setIsLoadingUserReview(false);
-      setHttpError(error.message);
-    });
-  }, [authState]);
+  // useEffect(() => {
+  //   const fetchUserReviewBook = async () => {
+  //     if (authState && authState.isAuthenticated) {
+  //       const url = `http://localhost:8080/api/reviews/secure/user/book/?bookId=${bookId}`;
+  //       const requestOptions = {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: `Bearer ${authState.accessToken?.accessToken}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       };
+  //       const userReview = await fetch(url, requestOptions);
+  //       if (!userReview.ok) {
+  //         throw new Error("Something went wrong");
+  //       }
+  //       const userReviewResponseJson = await userReview.json();
+  //       setIsReviewLeft(userReviewResponseJson);
+  //     }
+  //     setIsLoadingUserReview(false);
+  //   };
+  //   fetchUserReviewBook().catch((error: any) => {
+  //     setIsLoadingUserReview(false);
+  //     setHttpError(error.message);
+  //   });
+  // }, [authState]);
 
-  useEffect(() => {
-    const fetchUserCurrentLoansCount = async () => {
-      if (authState && authState.isAuthenticated) {
-        const url = `http://localhost:8080/api/books/secure/currentloans/count`;
-        const requestOptions = {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${authState.accessToken?.accessToken}`,
-            "Content-Type": "application/json",
-          },
-        };
-        const currentLoansCountResponse = await fetch(url, requestOptions);
-        if (!currentLoansCountResponse.ok) {
-          throw new Error("Something went wrong!");
-        }
-        const currentLoansCountResponseJson =
-          await currentLoansCountResponse.json();
-        setCurrentLoansCount(currentLoansCountResponseJson);
-      }
-      setIsLoadingCurrentLoansCount(false);
-    };
-    fetchUserCurrentLoansCount().catch((error: any) => {
-      setIsLoadingCurrentLoansCount(false);
-      setHttpError(error.message);
-    });
-  }, [authState, isCheckedOut]);
+  // useEffect(() => {
+  //   const fetchUserCurrentLoansCount = async () => {
+  //     if (authState && authState.isAuthenticated) {
+  //       const url = `http://localhost:8080/api/books/secure/currentloans/count`;
+  //       const requestOptions = {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: `Bearer ${authState.accessToken?.accessToken}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       };
+  //       const currentLoansCountResponse = await fetch(url, requestOptions);
+  //       if (!currentLoansCountResponse.ok) {
+  //         throw new Error("Something went wrong!");
+  //       }
+  //       const currentLoansCountResponseJson =
+  //         await currentLoansCountResponse.json();
+  //       setCurrentLoansCount(currentLoansCountResponseJson);
+  //     }
+  //     setIsLoadingCurrentLoansCount(false);
+  //   };
+  //   fetchUserCurrentLoansCount().catch((error: any) => {
+  //     setIsLoadingCurrentLoansCount(false);
+  //     setHttpError(error.message);
+  //   });
+  // }, [authState, isCheckedOut]);
 
-  useEffect(() => {
-    const fetchUserCheckedOutBook = async () => {
-      if (authState && authState.isAuthenticated) {
-        const url = `http://localhost:8080/api/books/secure/ischeckedout/byuser/?bookId=${bookId}`;
-        const requestOptions = {
-          method: "GET",
-          headers: {
-            Authorization: `Bearer ${authState.accessToken?.accessToken}`,
-            "Content-Type": "application/json",
-          },
-        };
-        const bookCheckedOut = await fetch(url, requestOptions);
-        if (!bookCheckedOut.ok) {
-          throw new Error("Something went wrong!");
-        }
-        const bookCheckedOutResponseJson = await bookCheckedOut.json();
-        setIsCheckedOut(bookCheckedOutResponseJson);
-      }
-      setIsLoadingBookCheckedOut(false);
-    };
-    fetchUserCheckedOutBook().catch((error: any) => {
-      setIsLoadingBookCheckedOut(false);
-      setHttpError(error.message);
-    });
-  }, [authState]);
+  // useEffect(() => {
+  //   const fetchUserCheckedOutBook = async () => {
+  //     if (authState && authState.isAuthenticated) {
+  //       const url = `http://localhost:8080/api/books/secure/ischeckedout/byuser/?bookId=${bookId}`;
+  //       const requestOptions = {
+  //         method: "GET",
+  //         headers: {
+  //           Authorization: `Bearer ${authState.accessToken?.accessToken}`,
+  //           "Content-Type": "application/json",
+  //         },
+  //       };
+  //       const bookCheckedOut = await fetch(url, requestOptions);
+  //       if (!bookCheckedOut.ok) {
+  //         throw new Error("Something went wrong!");
+  //       }
+  //       const bookCheckedOutResponseJson = await bookCheckedOut.json();
+  //       setIsCheckedOut(bookCheckedOutResponseJson);
+  //     }
+  //     setIsLoadingBookCheckedOut(false);
+  //   };
+  //   fetchUserCheckedOutBook().catch((error: any) => {
+  //     setIsLoadingBookCheckedOut(false);
+  //     setHttpError(error.message);
+  //   });
+  // }, [authState]);
 
   if (
     isLoading ||
@@ -203,7 +204,7 @@ export const BookCheckoutPage = () => {
     isLoadingBookCheckedOut ||
     isLoadingUserReview
   ) {
-    return <SpinnerLoading />;
+    return <Loading />;
   }
 
   if (httpError) {

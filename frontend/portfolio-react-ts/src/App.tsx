@@ -11,6 +11,10 @@ import WeatherRootLayout from "./Projects/WeatherForecast/pages/Root";
 import Home from "./Projects/WeatherForecast/pages/Home";
 import LibraryRootLayout from "./Projects/LibraryApp/Pages/Root";
 import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
+import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
+import { oktaConfig } from "./lib/config";
+import { LoginCallback } from "@okta/okta-react";
+import LoginWidget from "./Auth/LoginWidget";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +24,11 @@ const router = createBrowserRouter([
     children: [
       { index: true, element: <LandingPage /> },
       {
+        path: "/login",
+        element: <LoginWidget config={oktaConfig} />,
+      },
+      { path: "/callback", element: <LoginCallback /> },
+      {
         path: "weather",
         element: <WeatherRootLayout />,
         children: [
@@ -27,8 +36,6 @@ const router = createBrowserRouter([
             index: true,
             element: <Home />,
           },
-          //   { path: "/login",
-          //  },
           {
             path: ":cityName",
             id: "forecast-weather",
@@ -47,7 +54,7 @@ const router = createBrowserRouter([
         children: [
           { index: true, element: <LibraryHomePage /> },
           { path: "/library/search", element: <SearchBooksPage /> },
-          { path: "/library/checkout/:bookId" },
+          { path: "/library/checkout/:bookId", element: <BookCheckoutPage /> },
         ],
       },
       {
