@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import ReactDOM from "react-dom";
-import Card from "../../Layouts/components/Card/Card";
+import Card from "../../../Layouts/components/Card/Card";
 import classes from "./Modal.module.css";
 
 const Backdrop = (props) => {

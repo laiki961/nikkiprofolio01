@@ -1,7 +1,7 @@
 import classes from "./Forecasts.module.css";
 import ForecastWeather from "../ForecastWeather";
 import WeatherContext from "../store/weather-context";
-import Loading from "../../Layouts/components/Loading/Loading";
+import Loading from "../../../Layouts/components/Loading/Loading";
 import { useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 

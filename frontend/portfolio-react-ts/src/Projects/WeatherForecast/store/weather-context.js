@@ -1,7 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import useHttp from "../../hooks/use-http";
-import { config } from "../../lib/config";
+import useHttp from "../../../hooks/use-http";
+import { config } from "../../../lib/config";
 
 const WeatherContext = React.createContext({
   onFetch: (city) => {},

@@ -3,14 +3,14 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Layouts/Pages/LandingPage/Root";
 import ErrorPage from "./Layouts/components/Error/Error";
 import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
-import ECommerceLandingPage from "./eCommerce/Pages/LandingPage/eCommerceHomePage";
-import LibraryHomePage from "./LibraryApp/Pages/LibraryHomePage/HomePage";
+import ECommerceLandingPage from "./Projects/eCommerce/Pages/LandingPage/eCommerceHomePage";
+import LibraryHomePage from "./Projects/LibraryApp/Pages/LibraryHomePage/HomePage";
 // import Details from "./WeatherForecast/pages/Details";
-import Forecasts from "./WeatherForecast/pages/Forecasts";
-import WeatherRootLayout from "./WeatherForecast/pages/Root";
-import Home from "./WeatherForecast/pages/Home";
-import LibraryRootLayout from "./LibraryApp/Pages/Root";
-import { SearchBooksPage } from "./LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
+import Forecasts from "./Projects/WeatherForecast/pages/Forecasts";
+import WeatherRootLayout from "./Projects/WeatherForecast/pages/Root";
+import Home from "./Projects/WeatherForecast/pages/Home";
+import LibraryRootLayout from "./Projects/LibraryApp/Pages/Root";
+import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
 
 const router = createBrowserRouter([
   {

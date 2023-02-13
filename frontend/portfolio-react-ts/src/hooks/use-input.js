@@ -1,5 +1,5 @@
 import { useContext, useReducer } from "react";
-import WeatherContext from "../WeatherForecast/store/weather-context";
+import WeatherContext from "../Projects/WeatherForecast/store/weather-context";
 
 const initialInputState = {
   value: "",
