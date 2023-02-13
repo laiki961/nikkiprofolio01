@@ -9,11 +9,11 @@ import { SearchBooksPage } from "../SearchBooksPage/SearchBooksPage";
 const HomePage = () => {
   return (
     <section id={classes["library-section"]}>
-      {/* <ExploreTopBooks />
+      <ExploreTopBooks />
       <Carousel />
       <Heros />
-      <LibraryServices /> */}
-      <SearchBooksPage />
+      <LibraryServices />
+      {/* <SearchBooksPage /> */}
     </section>
   );
 };

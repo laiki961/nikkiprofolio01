@@ -1,6 +1,6 @@
 // import { useOktaAuth } from "@okta/okta-react";
 import { Link } from "react-router-dom";
-import classes from "../HomePage.module.css";
+import classes from "../../Library.module.css";
 
 export const LibraryServices = () => {
   // const { authState } = useOktaAuth();
