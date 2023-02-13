@@ -1,17 +1,12 @@
 import { useEffect, useState } from "react";
 import BookModel from "../../Models/BookModel";
 import ReviewModel from "../../Models/ReviewModel";
-// import { SpinnerLoading } from "../../Utils/Loading";
 import Loading from "../../../../Layouts/components/Loading/Loading";
 import { StarsReview } from "../../Utils/StarsReview";
 import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
 import { LatestReviews } from "./LatestReviews";
-// import { StarsReview } from "../Utils/StarsReview";
-// import { CheckoutAndReviewBox } from "./CheckoutAndReviewBox";
-// import { LatestReviews } from "./LatestReviews";
 import { useOktaAuth } from "@okta/okta-react";
 import ReviewRequestModel from "../../Models/ReviewRequestModel";
-// import ReviewRequestModel from "../../models/ReviewRequestModel";
 
 export const BookCheckoutPage = () => {
   const { authState } = useOktaAuth();
@@ -199,9 +194,9 @@ export const BookCheckoutPage = () => {
 
   if (
     isLoading ||
-    isLoadingReview
-    // ||
-    // isLoadingCurrentLoansCount ||
+    isLoadingReview ||
+    isLoadingCurrentLoansCount
+    //||
     // isLoadingBookCheckedOut ||
     // isLoadingUserReview
   ) {
