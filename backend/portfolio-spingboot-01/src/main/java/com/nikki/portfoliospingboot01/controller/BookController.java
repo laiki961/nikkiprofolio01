@@ -16,6 +16,20 @@ public class BookController {
         this.bookService = bookService;
     }
 
+    @GetMapping("/secure/currentloans/count")
+    public int currentLoansCount(@RequestHeader(value = "Authorization") String token) {
+        String userEmail = com.luv2code.springbootlibrary.utils.ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        return bookService.currentLoansCount(userEmail);
+    }
+
+
+    @GetMapping("/secure/ischeckedout/byuser")
+    public Boolean checkoutBookByUser(@RequestHeader(value = "Authorization") String token,
+                                      @RequestParam Long bookId) {
+        String userEmail = com.luv2code.springbootlibrary.utils.ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        return bookService.checkoutBookByUser(userEmail, bookId);
+    }
+
     @PutMapping("/secure/checkout")
     public Book checkout (@RequestParam Long bookId) throws Exception {
         String userEmail = "testuser@email.com";
