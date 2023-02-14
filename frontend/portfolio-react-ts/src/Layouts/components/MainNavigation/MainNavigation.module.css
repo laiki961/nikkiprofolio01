@@ -1,5 +1,5 @@
 #main-nav {
-  background-color: #26272b;
+  background-color: var(--color-gray-900);
   position: fixed;
   top: 0;
   width: 100%;
@@ -28,6 +28,23 @@
 
 #main-nav-list a:hover,
 #main-nav-list a.active {
+  font-weight: bolder;
+  color: var(--color-primary-900);
+}
+
+.navbar-feature {
+  color: #fff;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  border-color: #212529;
+  border: transparent;
+}
+
+.navbar-feature.button {
+  color: var(--color-primary-600);
+}
+
+.navbar-feature :hover {
   font-weight: bolder;
   color: var(--color-primary-900);
 }

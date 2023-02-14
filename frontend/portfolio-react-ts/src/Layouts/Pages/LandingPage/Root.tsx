@@ -11,6 +11,7 @@ import MainNavigation from "../../components/MainNavigation/MainNavigation";
 // import { getTokenDuration } from "../util/auth";
 import { OktaAuth, toRelativeUrl } from "@okta/okta-auth-js";
 import { oktaConfig } from "../../../lib/config";
+import Footer from "../../components/Footer/Footer";
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
@@ -55,6 +56,7 @@ function RootLayout() {
       <main>
         <Outlet />
       </main>
+      <Footer />
     </Security>
   );
 }
