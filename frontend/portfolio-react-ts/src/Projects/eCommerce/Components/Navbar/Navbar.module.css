@@ -1,0 +1,15 @@
+.ecommerce-navbar {
+  background-color: var(--color-primary-900);
+}
+
+li {
+  list-style-type: none;
+}
+
+.nav-link {
+  color: var(--color-white);
+}
+
+#dropdown-menu-category {
+  background-color: var(--color-primary-700);
+}

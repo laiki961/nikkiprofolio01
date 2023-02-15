@@ -23,11 +23,13 @@ function Footer() {
             <h6>Quick Links</h6>
             <ul className='footer-links'>
               <li>
-                <Link to='/projects'>Projects</Link>
+                <Link to='/'>Projects</Link>
                 <br />
-                <Link to='/projects/todolist'>To Do List</Link>
+                <Link to='/weather'>Weather Forecast</Link>
                 <br />
-                <Link to='/projects/weather'>Weather</Link>
+                <Link to='/library'>Library</Link>
+                <br />
+                <Link to='/ecommerce'>eCommerce</Link>
               </li>
             </ul>
           </div>

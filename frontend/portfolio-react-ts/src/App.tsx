@@ -15,6 +15,7 @@ import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/B
 import { oktaConfig } from "./lib/config";
 import { LoginCallback } from "@okta/okta-react";
 import LoginWidget from "./Auth/LoginWidget";
+import EcommerceRootLayout from "./Projects/eCommerce/Pages/Root";
 
 const router = createBrowserRouter([
   {
@@ -59,7 +60,7 @@ const router = createBrowserRouter([
       },
       {
         path: "ecommerce",
-        element: <ECommerceLandingPage />,
+        element: <EcommerceRootLayout />,
         children: [{ index: true, element: <ECommerceLandingPage /> }],
       },
     ],
