@@ -1,10 +1,10 @@
 import ProductModel from "../../../../Models/ProductModel";
-import { Card, Button } from "react-bootstrap";
+import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export const Products: React.FC<{ product: ProductModel }> = (props) => {
   return (
-    <Link to='/' className='product-card'>
+    <Link to={`/ecommerce/${props.product.id}`} className='product-card'>
       <Card style={{ width: "18rem" }}>
         <Card.Img
           variant='top'

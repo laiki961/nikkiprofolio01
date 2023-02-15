@@ -3,19 +3,23 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RootLayout from "./Layouts/Pages/LandingPage/Root";
 import ErrorPage from "./Layouts/components/Error/Error";
 import { LandingPage } from "./Layouts/Pages/LandingPage/LandingPage";
-import ECommerceLandingPage from "./Projects/eCommerce/Pages/LandingPage/eCommerceHomePage";
-import LibraryHomePage from "./Projects/LibraryApp/Pages/LibraryHomePage/HomePage";
-// import Details from "./WeatherForecast/pages/Details";
-import Forecasts from "./Projects/WeatherForecast/pages/Forecasts";
-import WeatherRootLayout from "./Projects/WeatherForecast/pages/Root";
-import Home from "./Projects/WeatherForecast/pages/Home";
-import LibraryRootLayout from "./Projects/LibraryApp/Pages/Root";
-import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
-import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
 import { oktaConfig } from "./lib/config";
 import { LoginCallback } from "@okta/okta-react";
 import LoginWidget from "./Auth/LoginWidget";
+
+import WeatherRootLayout from "./Projects/WeatherForecast/pages/Root";
+import WeatherHome from "./Projects/WeatherForecast/pages/Home";
+import Forecasts from "./Projects/WeatherForecast/pages/Forecasts";
+// import Details from "./WeatherForecast/pages/Details";
+
+import LibraryRootLayout from "./Projects/LibraryApp/Pages/Root";
+import LibraryHomePage from "./Projects/LibraryApp/Pages/LibraryHomePage/HomePage";
+import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
+import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
+
+import { ECommerceLandingPage } from "./Projects/eCommerce/Pages/HomePage/HomePage";
 import EcommerceRootLayout from "./Projects/eCommerce/Pages/Root";
+import { Details as ProductDetailsPage } from "./Projects/eCommerce/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
   {
@@ -35,7 +39,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Home />,
+            element: <WeatherHome />,
           },
           {
             path: ":cityName",
@@ -61,7 +65,10 @@ const router = createBrowserRouter([
       {
         path: "ecommerce",
         element: <EcommerceRootLayout />,
-        children: [{ index: true, element: <ECommerceLandingPage /> }],
+        children: [
+          { index: true, element: <ECommerceLandingPage /> },
+          { path: "/ecommerce/:productId", element: <ProductDetailsPage /> },
+        ],
       },
     ],
   },

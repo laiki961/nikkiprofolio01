@@ -1,8 +1,7 @@
-// import Card from "../../../../Layouts/components/Card/Card";
 import { Container, Row, Col } from "react-bootstrap";
 import { Product } from "../../Models/ProductModel";
 import { Products } from "./components/Products/Products";
-import classes from "./eCommerceHomePage.module.css";
+import classes from "./HomePage.module.css";
 
 const DUMMY_PRODUCT: Product[] = [
   {
@@ -43,7 +42,7 @@ const DUMMY_PRODUCT: Product[] = [
   },
 ];
 
-function ECommerceLandingPage() {
+export function ECommerceLandingPage() {
   return (
     <section id={classes.ecommerce}>
       <Container>
@@ -58,5 +57,3 @@ function ECommerceLandingPage() {
     </section>
   );
 }
-
-export default ECommerceLandingPage;
