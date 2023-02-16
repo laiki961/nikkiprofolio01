@@ -31,7 +31,7 @@ export const Details = (props: any) => {
           <div id={classes["product-details"]}>
             <h2>{DUMMY_PRODUCT.name}</h2>
             <div>Size:</div>
-            <div>Color:</div>
+            <div>Color:Prod</div>
             <div>
               {DUMMY_PRODUCT.price}
               <span> CAD</span>

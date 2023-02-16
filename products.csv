@@ -1,0 +1,8 @@
+id,name,description,size,sale,img,review,total_quantity,quantity_available,price,category
+1,"Align Super High-Rise Legging",NULL,2,0,NULL,NULL,10,10,69.99,Women
+2,"Align Super High-Rise Legging",NULL,4,0,NULL,NULL,12,12,69.99,Women
+3,"Align Super High-Rise Legging",NULL,6,0,NULL,NULL,8,8,69.99,Women
+4,"Align High-Rise Legging",NULL,2,0,NULL,NULL,70,59,99.99,Women
+5,"Align High-Rise Legging",NULL,4,0,NULL,NULL,60,38,99.99,Women
+6,"Align High-Rise Legging",NULL,6,0,NULL,NULL,8,8,99.99,Women
+7,"Align High-Rise Legging",NULL,8,0,NULL,NULL,40,30,99.99,Women
