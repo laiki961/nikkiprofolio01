@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 
 export const Products: React.FC<{ product: ProductModel }> = (props) => {
   return (
-    <Link to={`/ecommerce/${props.product.id}`} className='product-card'>
+    <Link to={`/restaurant/${props.product.id}`} className='product-card'>
       <Card style={{ width: "18rem" }}>
         <Card.Img
           variant='top'
-          src={require("../../../../Images/WunderTrain_blue_25.webp")}
+          src={require("../../../../Images/pad_thai.jpeg")}
           className='product-image'
         />
         <Card.Body>

@@ -5,11 +5,10 @@ import classes from "./Details.module.css";
 
 const DUMMY_PRODUCT: Product = {
   id: 1,
-  name: "Product 1",
+  name: "Pad Thai",
   description: "Pant",
-  size: "4",
-  category: [{ id: 1, category: "Boy" }],
-  img: "../../Images/WunderTrain_black25.webp",
+  category: [{ id: 6, category: "Noodles" }],
+  img: "../../Images/pad_thai.jpeg",
   price: 99.99,
 };
 
@@ -23,7 +22,7 @@ export const Details = (props: any) => {
           <div id={classes["product-image-carousel"]}>
             <img
               className={classes["product-details-img"]}
-              src={require("../../Images/WunderTrain_black25.webp")}
+              src={require("../../Images/pad_thai.jpeg")}
             ></img>
           </div>
         </Col>

@@ -4,7 +4,6 @@ export type Product = {
   id: number;
   name: string;
   description: string;
-  size: string;
   category: Category[];
   img?: string;
   price: number;
@@ -13,7 +12,6 @@ export type Product = {
 class ProductModel {
   id: number;
   name: string;
-  size: string;
   description: string;
   category: Category[];
   img?: string;
@@ -22,7 +20,6 @@ class ProductModel {
   constructor(
     id: number,
     name: string,
-    size: string,
     description: string,
     category: Category[],
     img: string,
@@ -30,7 +27,6 @@ class ProductModel {
   ) {
     this.id = id;
     this.name = name;
-    this.size = size;
     this.description = description;
     this.category = category;
     this.img = img;
