@@ -67,12 +67,12 @@ function MainNavigation() {
           </li>
           <li>
             <NavLink
-              to='/ecommerce'
+              to='/restaurant'
               className={({ isActive }) =>
                 isActive ? classes.active : undefined
               }
             >
-              eCommerce
+              Restaurant
             </NavLink>
           </li>
         </ul>

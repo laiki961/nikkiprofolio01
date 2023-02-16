@@ -19,7 +19,7 @@ export const SearchBooksPage = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const baseUrl: string = "http://localhost:8080/api/books";
+      const baseUrl: string = "http://localhost:8080/library/api/books";
       let url: string = "";
 
       if (searchUrl === "") {
@@ -85,6 +85,7 @@ export const SearchBooksPage = () => {
   };
 
   const categoryField = (value: string) => {
+    console.log(value);
     if (
       value.toLowerCase() === "fe" ||
       value.toLowerCase() === "be" ||

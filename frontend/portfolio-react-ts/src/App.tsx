@@ -17,9 +17,9 @@ import LibraryHomePage from "./Projects/LibraryApp/Pages/LibraryHomePage/HomePag
 import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
 import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
 
-import { ECommerceLandingPage } from "./Projects/eCommerce/Pages/HomePage/HomePage";
-import EcommerceRootLayout from "./Projects/eCommerce/Pages/Root";
-import { Details as ProductDetailsPage } from "./Projects/eCommerce/Pages/ProductDetailsPage/Details";
+import { RestaurantLandingPage } from "./Projects/Restaurant/Pages/HomePage/HomePage";
+import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
+import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
   {
@@ -63,11 +63,11 @@ const router = createBrowserRouter([
         ],
       },
       {
-        path: "ecommerce",
-        element: <EcommerceRootLayout />,
+        path: "restaurant",
+        element: <RestaurantRootLayout />,
         children: [
-          { index: true, element: <ECommerceLandingPage /> },
-          { path: "/ecommerce/:productId", element: <ProductDetailsPage /> },
+          { index: true, element: <RestaurantLandingPage /> },
+          { path: "/restaurant/:productId", element: <ProductDetailsPage /> },
         ],
       },
     ],
