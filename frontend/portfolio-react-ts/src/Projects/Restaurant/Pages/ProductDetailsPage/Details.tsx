@@ -1,9 +1,9 @@
 import { Row, Col, Container } from "react-bootstrap";
 import { Breadcrumbs } from "../../../../Layouts/components/Breadcrumbs/Breadcrumbs";
-import ProductModel, { Product } from "../../Models/ProductModel";
+import ProductModel from "../../Models/ProductModel";
 import classes from "./Details.module.css";
 
-const DUMMY_PRODUCT: Product = {
+const DUMMY_PRODUCT: ProductModel = {
   id: 1,
   name: "Pad Thai",
   description: "Pant",

@@ -1,9 +1,9 @@
 import { Container, Row, Col } from "react-bootstrap";
-import { Product } from "../../Models/ProductModel";
+import ProductModel from "../../Models/ProductModel";
 import { Products } from "./components/Products/Products";
 import classes from "./HomePage.module.css";
 
-const DUMMY_PRODUCT: Product[] = [
+const DUMMY_PRODUCT: ProductModel[] = [
   {
     id: 1,
     name: "Pad Thai",

@@ -1,13 +1,13 @@
 import { Category } from "./CategoryModel";
 
-export type Product = {
-  id: number;
-  name: string;
-  description: string;
-  category: Category[];
-  img?: string;
-  price: number;
-};
+// export type Product = {
+//   id: number;
+//   name: string;
+//   description: string;
+//   category: Category[];
+//   img?: string;
+//   price: number;
+// };
 
 class ProductModel {
   id: number;
