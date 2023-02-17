@@ -4,12 +4,12 @@ import classes from "./MenuNavbar.module.css";
 
 const DUMMY_CATEGORIES: CategoryModel[] = [
   { id: 1, category: "Starter" },
-  { id: 2, category: "Soups & Salads" },
+  // { id: 2, category: "Soups & Salads" },
   { id: 3, category: "Rice" },
-  { id: 4, category: "Side" },
-  { id: 5, category: "Curry" },
+  // { id: 4, category: "Side" },
+  // { id: 5, category: "Curry" },
   { id: 6, category: "Noodles" },
-  { id: 7, category: "Stir Fry" },
+  // { id: 7, category: "Stir Fry" },
   { id: 8, category: "Desserts" },
 ];
 
