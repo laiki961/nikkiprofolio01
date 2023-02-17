@@ -1,11 +1,11 @@
 package com.nikkiportfolio.restaurant.respository;
 
 
-import com.nikkiportfolio.restaurant.entity.Product;
+import com.nikkiportfolio.restaurant.domain.entity.ProductEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
 
-public interface ProductRepository extends JpaRepository<Product, Long> {
-    List<Product> findAll();
+public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
+    List<ProductEntity> findAll();
 }

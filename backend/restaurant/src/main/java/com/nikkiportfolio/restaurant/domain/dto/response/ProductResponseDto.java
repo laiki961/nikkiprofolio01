@@ -1,6 +1,6 @@
-package com.nikkiportfolio.restaurant.dto.response;
+package com.nikkiportfolio.restaurant.domain.dto.response;
 
-import com.nikkiportfolio.restaurant.entity.Product;
+import com.nikkiportfolio.restaurant.domain.Product;
 import lombok.Data;
 
 @Data

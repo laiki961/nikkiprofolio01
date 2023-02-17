@@ -1,6 +1,6 @@
 package com.nikkiportfolio.restaurant.service;
 
-import com.nikkiportfolio.restaurant.entity.Product;
+import com.nikkiportfolio.restaurant.domain.Product;
 
 import java.util.List;
 

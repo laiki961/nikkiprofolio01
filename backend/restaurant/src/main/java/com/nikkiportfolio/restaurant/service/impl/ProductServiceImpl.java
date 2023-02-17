@@ -1,7 +1,8 @@
 package com.nikkiportfolio.restaurant.service.impl;
 
+import com.nikkiportfolio.restaurant.domain.Product;
+import com.nikkiportfolio.restaurant.domain.entity.ProductEntity;
 import com.nikkiportfolio.restaurant.respository.ProductRepository;
-import com.nikkiportfolio.restaurant.entity.Product;
 import com.nikkiportfolio.restaurant.service.ProductService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,8 +22,12 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public List<Product> getAllProducts(){
-        List<Product> products = productRepository.findAll();
+        List<ProductEntity> products = productRepository.findAll();
+        logger.debug(products.toString());
         List<Product> productList = new ArrayList<>();
+        for(ProductEntity productEntity: products){
+            productList.add(new Product(productEntity));
+        }
         return productList;
     }
 

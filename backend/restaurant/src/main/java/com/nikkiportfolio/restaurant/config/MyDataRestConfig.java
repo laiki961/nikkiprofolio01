@@ -1,6 +1,6 @@
 package com.nikkiportfolio.restaurant.config;
 
-import com.nikkiportfolio.restaurant.entity.Product;
+import com.nikkiportfolio.restaurant.domain.entity.ProductEntity;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.data.rest.core.config.RepositoryRestConfiguration;
 import org.springframework.data.rest.webmvc.config.RepositoryRestConfigurer;
@@ -19,10 +19,10 @@ public class MyDataRestConfig implements RepositoryRestConfigurer {
                 HttpMethod.DELETE,
                 HttpMethod.PUT
         };
-        config.exposeIdsFor(Product.class);
+        config.exposeIdsFor(ProductEntity.class);
 
 
-        disableHttpMethods(Product.class, config, theUnsupportedActions);
+        disableHttpMethods(ProductEntity.class, config, theUnsupportedActions);
 
 //        Configure CORS Mapping
         cors.addMapping((config.getBasePath() + "/**"))

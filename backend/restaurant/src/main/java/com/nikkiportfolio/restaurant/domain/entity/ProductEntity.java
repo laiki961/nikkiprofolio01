@@ -1,4 +1,4 @@
-package com.nikkiportfolio.restaurant.entity;
+package com.nikkiportfolio.restaurant.domain.entity;
 
 import lombok.Data;
 
@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Entity
 @Table(name="product")
 @Data
-public class Product {
+public class ProductEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column (name = "id")
@@ -31,6 +31,16 @@ public class Product {
     @Column (name = "quantityAvailable")
     private int quantityAvailable;
 
-
-
+    @Override
+    public String toString() {
+        return "ProductEntity{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", category='" + category + '\'' +
+                ", ingredients='" + ingredients + '\'' +
+                ", price=" + price +
+                ", totalQuantity=" + totalQuantity +
+                ", quantityAvailable=" + quantityAvailable +
+                '}';
+    }
 }
