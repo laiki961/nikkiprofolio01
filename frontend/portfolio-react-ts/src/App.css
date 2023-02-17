@@ -38,6 +38,6 @@
 }
 
 main {
-  margin-top: 60px;
-  /* using this to prevent first row being hidden by navbar */
+  margin-top: 55px;
+  /* using this to prevent first row being hidden by navbar  */
 }

@@ -2,6 +2,8 @@ import { Link, NavLink } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import classes from "./MainNavigation.module.css";
 import Loading from "../Loading/Loading";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser, faRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 function MainNavigation() {
   let prevScrollpos = window.pageYOffset;
@@ -29,77 +31,75 @@ function MainNavigation() {
   };
 
   return (
-    <div id={classes["main-nav"]}>
+    <nav id={classes["main-nav"]}>
       <header className={`${classes["nav-header"]} container-sm`}>
-        <nav>
-          <ul id={classes["main-nav-list"]}>
-            <li>
-              <NavLink
-                to='/'
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
-                end
+        <ul id={classes["main-nav-list"]}>
+          <li>
+            <NavLink
+              to='/'
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+              end
+            >
+              Home
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/weather'
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Weather Forecast
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/library'
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Library
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to='/restaurant'
+              className={({ isActive }) =>
+                isActive ? classes.active : undefined
+              }
+            >
+              Restaurant
+            </NavLink>
+          </li>
+        </ul>
+        <ul id={classes["main-nav-list"]}>
+          {!authState.isAuthenticated ? (
+            <li className='nav-item'>
+              <Link
+                type='button'
+                className={classes["navbar-feature"]}
+                to='/login'
               >
-                Home
-              </NavLink>
+                <FontAwesomeIcon icon={faUser} />
+              </Link>
             </li>
-            <li>
-              <NavLink
-                to='/weather'
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
+          ) : (
+            <li className='nav-item'>
+              <button
+                className={`${classes["navbar-feature"]} ${classes.button}`}
+                onClick={handleLogout}
               >
-                Weather Forecast
-              </NavLink>
+                <FontAwesomeIcon icon={faRightFromBracket} />
+              </button>
             </li>
-            <li>
-              <NavLink
-                to='/library'
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
-              >
-                Library
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                to='/ecommerce'
-                className={({ isActive }) =>
-                  isActive ? classes.active : undefined
-                }
-              >
-                eCommerce
-              </NavLink>
-            </li>
-            {/* ADDED */}
-            {!authState.isAuthenticated ? (
-              <li className='nav-item'>
-                <Link
-                  type='button'
-                  className='btn btn-outline-light'
-                  to='/login'
-                >
-                  Sign in
-                </Link>
-              </li>
-            ) : (
-              <li>
-                <button
-                  className='btn btn-outline-light'
-                  onClick={handleLogout}
-                >
-                  Logout
-                </button>
-              </li>
-            )}
-            {/* ADDED END*/}
-          </ul>
-        </nav>
+          )}
+        </ul>
       </header>
-    </div>
+    </nav>
   );
 }
 

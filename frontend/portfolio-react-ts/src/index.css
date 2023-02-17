@@ -24,7 +24,7 @@ code {
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
+  /* background-color: #242424; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -52,6 +52,9 @@ code {
   --color-primary-700: #fbc14d;
   --color-primary-800: #fab833;
   --color-primary-900: #f6ad1b;
+
+  --color-restaurant-100: #2f5233;
+  --color-restaurant-500: #b1d8b7;
 }
 
 ul {
@@ -62,5 +65,5 @@ ul {
 
 a {
   text-decoration: none;
-  color: var(--color-white);
+  color: black;
 }
