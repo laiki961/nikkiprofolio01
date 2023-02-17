@@ -1,7 +1,6 @@
-import { Container, Row, Col } from "react-bootstrap";
-import ProductModel from "../../Models/ProductModel";
-import { Products } from "./components/Products/Products";
-import classes from "./HomePage.module.css";
+import ProductModel from "../../../../Models/ProductModel";
+import { Product } from "../Product/Product";
+import classes from "./Menu.module.css";
 
 const DUMMY_PRODUCT: ProductModel[] = [
   {
@@ -36,20 +35,30 @@ const DUMMY_PRODUCT: ProductModel[] = [
     img: ".../../Images/rice-mango.jpeg",
     price: 79.99,
   },
+  {
+    id: 5,
+    name: "Mango Sticky Rice",
+    description: "Coconut Milk",
+    category: [{ id: 8, category: "Desserts" }],
+    img: ".../../Images/rice-mango.jpeg",
+    price: 79.99,
+  },
+  {
+    id: 6,
+    name: "Pad Thai",
+    description: "Peanuts",
+    category: [{ id: 1, category: "Boy" }],
+    img: "../../Images/pad_thai.jpeg",
+    price: 99.99,
+  },
 ];
 
-export function RestaurantLandingPage() {
+export const Menu = () => {
   return (
-    <section id={classes.ecommerce}>
-      <Container>
-        <Row>
-          {DUMMY_PRODUCT.map((product) => (
-            <Col>
-              <Products key={product.id} product={product} />
-            </Col>
-          ))}
-        </Row>
-      </Container>
-    </section>
+    <div id={classes["products-container"]}>
+      {DUMMY_PRODUCT.map((product) => (
+        <Product key={product.id} product={product} />
+      ))}
+    </div>
   );
-}
+};

@@ -29,8 +29,6 @@ export const Details = (props: any) => {
         <Col>
           <div id={classes["product-details"]}>
             <h2>{DUMMY_PRODUCT.name}</h2>
-            <div>Size:</div>
-            <div>Color:Prod</div>
             <div>
               {DUMMY_PRODUCT.price}
               <span> CAD</span>

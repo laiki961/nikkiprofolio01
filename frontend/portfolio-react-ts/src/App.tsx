@@ -17,7 +17,7 @@ import LibraryHomePage from "./Projects/LibraryApp/Pages/LibraryHomePage/HomePag
 import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/SearchBooksPage";
 import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
 
-import { RestaurantLandingPage } from "./Projects/Restaurant/Pages/HomePage/HomePage";
+import { MenuPage } from "./Projects/Restaurant/Pages/MenuPage/MenuPage";
 import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
 import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
@@ -66,7 +66,7 @@ const router = createBrowserRouter([
         path: "restaurant",
         element: <RestaurantRootLayout />,
         children: [
-          { index: true, element: <RestaurantLandingPage /> },
+          { index: true, element: <MenuPage /> },
           { path: "/restaurant/:productId", element: <ProductDetailsPage /> },
         ],
       },

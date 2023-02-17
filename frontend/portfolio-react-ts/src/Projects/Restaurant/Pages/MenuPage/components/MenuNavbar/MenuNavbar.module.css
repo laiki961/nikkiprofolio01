@@ -1,0 +1,42 @@
+nav#menu-categories {
+  text-align: center;
+  padding: 2rem 0;
+  min-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: auto;
+}
+
+.category-link {
+  position: relative;
+  text-align: none;
+  color: #a0a0a0;
+  font-size: 18px;
+  letter-spacing: 0.5px;
+  padding: 0 10px;
+}
+
+.category-link:before,
+.category-link:after {
+  content: "";
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background-color: #18f08b;
+  transition: 0.5s;
+}
+
+.category-link:after {
+  left: 0;
+  bottom: -10px;
+}
+
+.category-link:before {
+  right: 0;
+  top: -10px;
+}
+
+.category-link:hover {
+  color: var(--color-primary-900);
+}
