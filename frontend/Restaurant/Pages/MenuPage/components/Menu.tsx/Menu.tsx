@@ -1,18 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import CategoryModel from "../Models/CategoryModel";
-import ProductModel from "../Models/ProductModel";
-
-const DUMMY_CATEGORIES: CategoryModel[] = [
-  { id: 1, category: "Starter" },
-  { id: 2, category: "Soups & Salads" },
-  { id: 3, category: "Rice" },
-  { id: 4, category: "Side" },
-  { id: 5, category: "Curry" },
-  { id: 6, category: "Noodles" },
-  { id: 7, category: "Stir Fry" },
-  { id: 8, category: "Desserts" },
-];
+import { useContext, useEffect } from "react";
+import ProductModel from "../../../../Models/ProductModel";
+import RestaurantContext from "../../../../Store/restaurant-context";
+import { Product } from "../Product/Product";
+import classes from "./Menu.module.css";
 
 const DUMMY_PRODUCT: ProductModel[] = [
   {
@@ -65,27 +55,16 @@ const DUMMY_PRODUCT: ProductModel[] = [
   },
 ];
 
-const RestaurantContext = React.createContext({
-  onFetchProducts: (foods: ProductModel[]) => {},
-  onFetchCategories: (categories: CategoryModel[]) => {},
-  categories: [],
-  products: [],
-});
+export const Menu = () => {
+  const { products, isLoading, error } = useContext(RestaurantContext);
 
-export const RestaurantContextProvider = (props: any) => {
-  const [categories, setCategories] = useState(null);
-  const [products, setProducts] = useState(null);
+  // useEffect(()=>[products])
 
-  const restaurantContext = {
-    // onFetchProducts,
-    // onFetchCategories,
-  };
-
-  // return (
-  //   <RestaurantContext.Provider
-  //     value={restaurantContext}
-  //   ></RestaurantContext.Provider>
-  // );
+  return (
+    <div id={classes["products-container"]}>
+      {DUMMY_PRODUCT.map((product) => (
+        <Product key={product.id} product={product} />
+      ))}
+    </div>
+  );
 };
-
-export default RestaurantContext;

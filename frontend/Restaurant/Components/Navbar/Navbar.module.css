@@ -1,0 +1,20 @@
+#restaurant-navbar {
+  background-color: var(--color-restaurant-100);
+}
+
+#navbar-brand-link {
+  font-family: "Dancing Script", cursive;
+  padding: 0 1vw;
+  color: white;
+}
+
+#shift a {
+  position: relative;
+  z-index: 1;
+  color: white;
+}
+
+#shift a:hover {
+  color: var(--color-primary-900);
+  font-weight: bolder;
+}
