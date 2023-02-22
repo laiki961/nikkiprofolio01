@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { useState } from "react";
 import useHttp from "../../../hooks/use-http";
-import CategoryModel from "../Models/CategoryModel";
 import ProductModel from "../Models/ProductModel";
 
 // const DUMMY_CATEGORIES: CategoryModel[] = [
@@ -20,6 +19,7 @@ type RestaurantContextObj = {
   onFetch: (url: string) => void;
   isLoading: boolean;
   error: boolean;
+  urlParam: (urlParam: string) => void;
 };
 
 export const RestaurantContext = React.createContext<RestaurantContextObj>({
@@ -27,30 +27,38 @@ export const RestaurantContext = React.createContext<RestaurantContextObj>({
   products: [],
   isLoading: false,
   error: false,
+  urlParam: (urlParam: string) => {},
 });
 
 export const RestaurantContextProvider: React.FC<{
   children: React.ReactNode;
 }> = (props) => {
   const [searchUrl, setSearchUrl] = useState<string>("");
-  const [category, setCategory] = useState<string>("");
+  //const [category, setCategory] = useState<string>("");
   const [products, setProducts] = useState<ProductModel[]>([]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
-  const setCateogry = (category: string) => {
-    console.log(category);
-    setCategory(category);
-  };
+  // const setCateogry = (category: string) => {
+  //   console.log(category);
+  //   setCategory(category);
+  // };
 
   useEffect(() => {
     // onFetch();
-  }, [category, searchUrl]);
+    setProducts([]);
+    searchUrl && onFetch();
+  }, [searchUrl]);
 
-  const onFetch = async (url: string) => {
+  const urlParam = (urlParam: string) => {
+    setSearchUrl(urlParam);
+  };
+
+  const onFetch = async () => {
     const baseUrl: string = `http://localhost:8080/restaurant/api/productEntities`;
     // const baseUrl: string = `http://localhost:8080/public/product/`;
 
+    let url: string = "";
     if (searchUrl === "") {
       url = `${baseUrl}?page=0`;
     } else {
@@ -92,6 +100,7 @@ export const RestaurantContextProvider: React.FC<{
     isLoading,
     products,
     error,
+    urlParam,
   };
 
   return (

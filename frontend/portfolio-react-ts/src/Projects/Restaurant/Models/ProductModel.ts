@@ -1,5 +1,3 @@
-import { Category } from "./CategoryModel";
-
 class ProductModel {
   id: number;
   name: string;

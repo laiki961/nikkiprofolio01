@@ -18,6 +18,7 @@ import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/Sea
 import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
 
 import { MenuPage } from "./Projects/Restaurant/Pages/MenuPage/MenuPage";
+//import { loader as productsLoader } from "./Projects/Restaurant/Pages/MenuPage/components/Menu/Menu";
 import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
 // import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
@@ -65,7 +66,13 @@ const router = createBrowserRouter([
       {
         path: "restaurant",
         element: <RestaurantRootLayout />,
-        children: [{ index: true, element: <MenuPage /> }],
+        children: [
+          {
+            index: true,
+            element: <MenuPage />,
+            // , loader: productsLoader
+          },
+        ],
       },
     ],
   },
