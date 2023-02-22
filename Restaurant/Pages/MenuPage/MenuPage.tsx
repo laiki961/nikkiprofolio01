@@ -1,6 +1,6 @@
 // import { Outlet } from "react-router-dom";
 import { Container } from "react-bootstrap";
-import { Menu } from "./components/Menu.tsx/Menu";
+import { Menu } from "./components/Menu/Menu";
 import { MenuNavbar } from "./components/MenuNavbar/MenuNavbar";
 import classes from "./MenuPage.module.css";
 

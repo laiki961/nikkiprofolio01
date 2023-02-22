@@ -5,7 +5,7 @@ import classes from "../../MenuPage.module.css";
 
 export const Product: React.FC<{ product: ProductModel }> = (props) => {
   return (
-    <Link to={`/restaurant/${props.product.id}`} className='px-2 '>
+    <Link to={`/restaurant/${props.product.id}`} className='p-2 '>
       <Card style={{ width: "18rem" }}>
         <Card.Img
           variant='top'

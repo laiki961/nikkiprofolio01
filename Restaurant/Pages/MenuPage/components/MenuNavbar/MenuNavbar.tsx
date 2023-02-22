@@ -1,8 +1,7 @@
-import CategoryModel from "../../../../Models/CategoryModel";
 import { NavLink } from "react-router-dom";
 import classes from "./MenuNavbar.module.css";
 
-const DUMMY_CATEGORIES: CategoryModel[] = [
+const DUMMY_CATEGORIES: any = [
   { id: 1, category: "Starter" },
   // { id: 2, category: "Soups & Salads" },
   { id: 3, category: "Rice" },
@@ -16,7 +15,7 @@ const DUMMY_CATEGORIES: CategoryModel[] = [
 export function MenuNavbar() {
   return (
     <nav id={classes["menu-categories"]}>
-      {DUMMY_CATEGORIES.map((category) => (
+      {DUMMY_CATEGORIES.map((category: any) => (
         <NavLink
           key={category.id}
           to={`/restaurant/${category}`}

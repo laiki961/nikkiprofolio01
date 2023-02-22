@@ -1,0 +1,44 @@
+.product-link {
+  max-width: 60%;
+}
+
+/* .product-name {
+  text-align: center;
+} */
+
+.product-img {
+  display: inline-block;
+  /* float: left; */
+  margin-right: 2rem;
+  width: 15%;
+  height: auto;
+}
+
+.product-info-container {
+  display: inline-block;
+  width: 80%;
+}
+
+.product-info {
+  margin-bottom: 1rem;
+}
+
+.product-ingredients {
+  display: inline-block;
+}
+
+.product-price {
+  text-align: right;
+  float: right;
+}
+
+.product-button {
+  background-color: var(--color-restaurant-100);
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 8px;
+  float: right;
+  text-align: center;
+  padding: 0.3rem 0.5rem;
+}
