@@ -16,11 +16,11 @@ export const ReviewListPage = () => {
   const [totalPages, setTotalPages] = useState(0);
 
   // Book to lookup reviews
-  const bookId = window.location.pathname.split("/")[2];
+  const bookId = window.location.pathname.split("/")[3];
 
   useEffect(() => {
     const fetchBookReviewsData = async () => {
-      const reviewUrl: string = `http://localhost:8080/api/reviews/search/findByBookId?bookId=${bookId}&page=${
+      const reviewUrl: string = `http://localhost:8080/library/api/reviews/search/findByBookId?bookId=${bookId}&page=${
         currentPage - 1
       }&size=${reviewsPerPage}`;
 
@@ -65,7 +65,7 @@ export const ReviewListPage = () => {
 
   if (httpError) {
     return (
-      <div className='container m-5'>
+      <div className='container m-5 vh-100'>
         <p>{httpError}</p>
       </div>
     );
@@ -82,7 +82,7 @@ export const ReviewListPage = () => {
   const paginate = (pageNumber: number) => setCurrentPage(pageNumber);
 
   return (
-    <div className='container mt-5'>
+    <div className='container mt-5 vh-100'>
       <div>
         <h3>Comments: ({reviews.length})</h3>
       </div>
