@@ -21,6 +21,7 @@ import { MenuPage } from "./Projects/Restaurant/Pages/MenuPage/MenuPage";
 //import { loader as productsLoader } from "./Projects/Restaurant/Pages/MenuPage/components/Menu/Menu";
 import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
 import { DetailsPage } from "./Projects/Restaurant/Pages/DetailsPage/DetailsPage";
+import { ReviewListPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/ReviewListPage/ReviewListPage";
 // import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
@@ -62,6 +63,7 @@ const router = createBrowserRouter([
           { index: true, element: <LibraryHomePage /> },
           { path: "/library/search", element: <SearchBooksPage /> },
           { path: "/library/checkout/:bookId", element: <BookCheckoutPage /> },
+          { path: "/library/reviewlist/:bookId", element: <ReviewListPage /> },
         ],
       },
       {

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin("http://localhost:3000")
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("library/api/books")
 public class BookController {
     private BookService bookService;
 
