@@ -20,6 +20,7 @@ import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/B
 import { MenuPage } from "./Projects/Restaurant/Pages/MenuPage/MenuPage";
 //import { loader as productsLoader } from "./Projects/Restaurant/Pages/MenuPage/components/Menu/Menu";
 import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
+import { DetailsPage } from "./Projects/Restaurant/Pages/DetailsPage/DetailsPage";
 // import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
@@ -70,7 +71,10 @@ const router = createBrowserRouter([
           {
             index: true,
             element: <MenuPage />,
-            // , loader: productsLoader
+          },
+          {
+            path: "/restaurant/:productId",
+            element: <DetailsPage />,
           },
         ],
       },

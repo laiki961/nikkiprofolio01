@@ -1,0 +1,8 @@
+#product-details {
+  min-height: 100vh;
+}
+
+.product-image {
+  height: auto;
+  width: 100%;
+}

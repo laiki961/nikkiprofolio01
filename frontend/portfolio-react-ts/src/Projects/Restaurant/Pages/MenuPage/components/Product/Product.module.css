@@ -2,13 +2,8 @@
   max-width: 60%;
 }
 
-/* .product-name {
-  text-align: center;
-} */
-
 .product-img {
   display: inline-block;
-  /* float: left; */
   margin-right: 2rem;
   width: 15%;
   height: auto;
