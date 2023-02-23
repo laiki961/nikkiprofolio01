@@ -1,19 +1,19 @@
 import { Link, NavLink } from "react-router-dom";
-// import { useOktaAuth } from "@okta/okta-react";
-// import Loading from "../../../../Layouts/components/Loading/Loading";
+import { useOktaAuth } from "@okta/okta-react";
+import Loading from "../../../../Layouts/components/Loading/Loading";
 
 export const Navbar = () => {
-  // const { oktaAuth, authState } = useOktaAuth();
+  const { oktaAuth, authState } = useOktaAuth();
 
-  // if (!authState) {
-  //   return <Loading />;
-  // }
+  if (!authState) {
+    return <Loading />;
+  }
 
-  // const handleLogout = async () => {
-  //   oktaAuth.signOut();
-  // };
+  const handleLogout = async () => {
+    oktaAuth.signOut();
+  };
 
-  // console.log(authState);
+  console.log(authState);
 
   return (
     <nav className='navbar navbar-expand-lg text-warning bg-secondary py-3'>
@@ -39,9 +39,17 @@ export const Navbar = () => {
                 Search Books
               </NavLink>
             </li>
+            {authState.isAuthenticated && (
+              <li className='nav-item'>
+                <NavLink className='nav-link text-white' to='/library/shelf'>
+                  Shelf
+                </NavLink>
+              </li>
+            )}
           </ul>
-          {/* <ul className='navbar-nav ms-auto'> */}
-          {/* {!authState.isAuthenticated ? (
+
+          {/* <ul className='navbar-nav ms-auto'>
+            {!authState.isAuthenticated ? (
               <li className='nav-item m-1'>
                 <Link
                   type='button'
@@ -60,8 +68,8 @@ export const Navbar = () => {
                   Logout
                 </button>
               </li>
-            )} */}
-          {/* </ul> */}
+            )}
+          </ul> */}
         </div>
       </div>
     </nav>

@@ -4,6 +4,7 @@ import BookModel from "../../Models/BookModel";
 import { Pagination } from "../../Utils/Pagination";
 import Loading from "../../../../Layouts/components/Loading/Loading";
 import { SearchBook } from "./components/SearchBook";
+import { useOktaAuth } from "@okta/okta-react";
 
 export const SearchBooksPage = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -16,6 +17,9 @@ export const SearchBooksPage = () => {
   const [search, setSearch] = useState("");
   const [searchUrl, setSearchUrl] = useState("");
   const [categorySelection, setCategorySelection] = useState("Book category");
+
+  // const { authState } = useOktaAuth();
+  // console.log(authState);
 
   useEffect(() => {
     const fetchBooks = async () => {
