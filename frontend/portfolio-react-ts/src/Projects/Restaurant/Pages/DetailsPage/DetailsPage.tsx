@@ -37,7 +37,7 @@ export const DetailsPage: React.FC<{}> = (props) => {
       },
       tranformedProduct
     );
-  }, [fetchProduct]);
+  }, [fetchProduct, params.productId]);
 
   let content: JSX.Element = <></>;
   if (isLoading) {
@@ -46,11 +46,12 @@ export const DetailsPage: React.FC<{}> = (props) => {
   if (error) {
     content = <p>{error}</p>;
   }
-  if (!isLoading && !error && product) {
+  if (!isLoading && !error && product && ingredients) {
     content = (
       <>
         <Col>
           <img
+            alt='meal'
             src={require(`../../Images/pad_thai.jpeg`)}
             className={classes["product-image"]}
           />

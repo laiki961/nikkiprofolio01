@@ -1,9 +1,10 @@
 // import { useOktaAuth } from "@okta/okta-react";
+import { useOktaAuth } from "@okta/okta-react";
 import { Link } from "react-router-dom";
 import classes from "../../Library.module.css";
 
 export const Heros = () => {
-  // const { authState } = useOktaAuth();
+  const { authState } = useOktaAuth();
 
   return (
     <div>
@@ -20,21 +21,22 @@ export const Heros = () => {
                 Whether it is to learn a new skill or grow within one, we will
                 be able to provide the top content for you!
               </p>
-              {/*               
+              {authState?.isAuthenticated ? (
                 <Link
                   type='button'
-                  className='btn main-color btn-lg text-white'
+                  className='btn btn-outline-secondary btn-lg text-black'
                   to='search'
                 >
                   Explore top books{" "}
                 </Link>
-               */}
-              <Link
-                className='btn btn-outline-secondary btn-lg text-black'
-                to='/login'
-              >
-                Sign up
-              </Link>
+              ) : (
+                <Link
+                  className='btn btn-outline-secondary btn-lg text-black'
+                  to='/login'
+                >
+                  Sign in
+                </Link>
+              )}
             </div>
           </div>
         </div>
@@ -72,19 +74,22 @@ export const Heros = () => {
                 Whether it is to learn a new skill or grow within one, we will
                 be able to provide the top content for you!
               </p>
-              <Link
-                type='button'
-                className='btn btn-outline-secondary btn-md text-black'
-                to='search'
-              >
-                Explore top books
-              </Link>
-              <Link
-                className='btn btn-outline-secondary btn-md text-black'
-                to='/login'
-              >
-                Sign up
-              </Link>
+              {authState?.isAuthenticated ? (
+                <Link
+                  type='button'
+                  className='btn btn-outline-secondary btn-md text-black'
+                  to='search'
+                >
+                  Explore top books
+                </Link>
+              ) : (
+                <Link
+                  className='btn btn-outline-secondary btn-md text-black'
+                  to='/login'
+                >
+                  Sign in
+                </Link>
+              )}
             </div>
           </div>
           <div className='m-2'>
