@@ -1,4 +1,4 @@
-package com.nikkiportfolio.libraryapp.config;
+package com.nikkiportfolio.restaurant.config;
 
 import com.okta.spring.boot.oauth.Okta;
 import org.springframework.context.annotation.Bean;
@@ -16,10 +16,10 @@ public class SecurityConfiguration {
         http.csrf().disable();
 
         // Protect endpoints at /api/<type>/secure
-        http.authorizeRequests(configurer -> configurer.antMatchers("library/api/books/secure/**", "library/api/reviews/secure/**")
-                        .authenticated())
-                .oauth2ResourceServer()
-                .jwt();
+//        http.authorizeRequests(configurer -> configurer.antMatchers("restaurant/api/**")
+//                        .authenticated())
+//                .oauth2ResourceServer()
+//                .jwt();
 
         // Add CORS filter to our API endpoints
         http.cors();
