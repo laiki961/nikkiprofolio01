@@ -15,6 +15,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 import java.util.concurrent.TimeUnit;
+import java.util.logging.Logger;
 
 @Service
 @Transactional
@@ -68,6 +69,7 @@ public class BookService {
         List<ShelfCurrentLoansResponse> shelfCurrentLoansResponses = new ArrayList<>();
 
         List<Checkout> checkoutList = checkoutRepository.findBooksByUserEmail(userEmail);
+
         List<Long> bookIdList = new ArrayList<>();
         for (Checkout i: checkoutList){
             bookIdList.add(i.getBookId());
