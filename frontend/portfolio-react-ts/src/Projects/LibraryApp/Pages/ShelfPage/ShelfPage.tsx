@@ -1,5 +1,4 @@
 import { useOktaAuth } from "@okta/okta-react";
-import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { Loans } from "./components/Loans";
 
