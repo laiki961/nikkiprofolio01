@@ -17,7 +17,7 @@ export const Loans = () => {
   useEffect(() => {
     const fetchUserCurrentLoans = async () => {
       if (authState && authState.isAuthenticated) {
-        const url = `http://localhost:8080/api/books/secure/currentloans`;
+        const url = `http://localhost:8080/library/api/books/secure/currentloans`;
         const requestOptions = {
           method: "GET",
           headers: {
@@ -122,7 +122,7 @@ export const Loans = () => {
                       </p>
                       <Link
                         className='btn btn-primary'
-                        to={`/checkout/${shelfCurrentLoan.book.id}`}
+                        to={`/library/checkout/${shelfCurrentLoan.book.id}`}
                       >
                         Leave a review
                       </Link>
@@ -214,7 +214,7 @@ export const Loans = () => {
                     </p>
                     <Link
                       className='btn btn-primary'
-                      to={`/checkout/${shelfCurrentLoan.book.id}`}
+                      to={`/library/checkout/${shelfCurrentLoan.book.id}`}
                     >
                       Leave a review
                     </Link>

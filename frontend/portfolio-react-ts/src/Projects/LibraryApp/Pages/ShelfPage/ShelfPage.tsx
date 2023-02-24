@@ -1,6 +1,7 @@
 import { useOktaAuth } from "@okta/okta-react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { Loans } from "./components/Loans";
 
 // import { HistoryPage } from "./components/HistoryPage";
 // import { Loans } from "./components/Loans";
@@ -11,7 +12,7 @@ export const ShelfPage = () => {
   const { authState } = useOktaAuth();
 
   return authState?.isAuthenticated ? (
-    <div className='container vh-100'>
+    <div className='container min-vh-100'>
       <div className='mt-3'>
         <nav>
           <div className='nav nav-tabs' id='nav-tab' role='tablist'>
@@ -50,7 +51,7 @@ export const ShelfPage = () => {
             role='tabpanel'
             aria-labelledby='nav-loans-tab'
           >
-            <p>Loan</p>
+            <Loans />
             {/* <Loans /> */}
           </div>
           <div
