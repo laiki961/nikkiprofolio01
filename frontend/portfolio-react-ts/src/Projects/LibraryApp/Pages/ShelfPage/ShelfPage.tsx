@@ -1,13 +1,14 @@
 import { useOktaAuth } from "@okta/okta-react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { HistoryPage } from "./components/HistoryPage";
 import { Loans } from "./components/Loans";
 
 // import { HistoryPage } from "./components/HistoryPage";
 // import { Loans } from "./components/Loans";
 
 export const ShelfPage = () => {
-  //   const [historyClick, setHistoryClick] = useState(false);
+  const [historyClick, setHistoryClick] = useState(false);
 
   const { authState } = useOktaAuth();
 
@@ -17,7 +18,7 @@ export const ShelfPage = () => {
         <nav>
           <div className='nav nav-tabs' id='nav-tab' role='tablist'>
             <button
-              //   onClick={() => setHistoryClick(false)}
+              onClick={() => setHistoryClick(false)}
               className='nav-link active'
               id='nav-loans-tab'
               data-bs-toggle='tab'
@@ -30,7 +31,7 @@ export const ShelfPage = () => {
               Loans
             </button>
             <button
-              //   onClick={() => setHistoryClick(true)}
+              onClick={() => setHistoryClick(true)}
               className='nav-link'
               id='nav-history-tab'
               data-bs-toggle='tab'
@@ -52,7 +53,6 @@ export const ShelfPage = () => {
             aria-labelledby='nav-loans-tab'
           >
             <Loans />
-            {/* <Loans /> */}
           </div>
           <div
             className='tab-pane fade'
@@ -60,8 +60,7 @@ export const ShelfPage = () => {
             role='tabpanel'
             aria-labelledby='nav-history-tab'
           >
-            <p>Checkout History</p>
-            {/* {historyClick ? <HistoryPage /> : <></>} */}
+            {historyClick ? <HistoryPage /> : <></>}
           </div>
         </div>
       </div>

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../../../../../Layouts/components/Loading/Loading";
 import ShelfCurrentLoans from "../../../Models/ShelfCurrentLoans";
+import { LoansModal } from "./LoansModel";
 
 export const Loans = () => {
   const { authState } = useOktaAuth();
@@ -13,6 +14,7 @@ export const Loans = () => {
     ShelfCurrentLoans[]
   >([]);
   const [isLoadingUserLoans, setIsLoadingUserLoans] = useState(true);
+  const [checkout, setCheckout] = useState(false);
 
   useEffect(() => {
     const fetchUserCurrentLoans = async () => {
@@ -40,7 +42,7 @@ export const Loans = () => {
       setHttpError(error.message);
     });
     window.scrollTo(0, 0);
-  }, [authState]);
+  }, [authState, checkout]);
 
   if (isLoadingUserLoans) {
     return <Loading />;
@@ -52,6 +54,39 @@ export const Loans = () => {
         <p> {httpError} </p>
       </div>
     );
+  }
+
+  async function returnBook(bookId: number) {
+    const url = `http://localhost:8080/library/api/books/secure/return/?bookId=${bookId}`;
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+    const returnResponse = await fetch(url, requestOptions);
+    if (!returnResponse.ok) {
+      throw new Error("Something went wrong!");
+    }
+    setCheckout(!checkout);
+  }
+
+  async function renewLoan(bookId: number) {
+    const url = `http://localhost:8080/library/api/books/secure/renew/loan/?bookId=${bookId}`;
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    const returnResponse = await fetch(url, requestOptions);
+    if (!returnResponse.ok) {
+      throw new Error("Something went wrong!");
+    }
+    setCheckout(!checkout);
   }
 
   return (
@@ -121,7 +156,7 @@ export const Loans = () => {
                         Help other find their adventure by reviewing your loan.
                       </p>
                       <Link
-                        className='btn btn-primary'
+                        className='btn btn-secondary'
                         to={`/library/checkout/${shelfCurrentLoan.book.id}`}
                       >
                         Leave a review
@@ -130,19 +165,19 @@ export const Loans = () => {
                   </div>
                 </div>
                 <hr />
-                {/* <LoansModal
+                <LoansModal
                   shelfCurrentLoan={shelfCurrentLoan}
                   mobile={false}
                   returnBook={returnBook}
                   renewLoan={renewLoan}
-                /> */}
+                />
               </div>
             ))}
           </>
         ) : (
           <>
             <h3 className='mt-3'>Currently no loans</h3>
-            <Link className='btn btn-primary' to={`search`}>
+            <Link className='btn btn-secondary' to={`/library/search`}>
               Search for a new book
             </Link>
           </>
@@ -222,19 +257,19 @@ export const Loans = () => {
                 </div>
 
                 <hr />
-                {/* <LoansModal
+                <LoansModal
                   shelfCurrentLoan={shelfCurrentLoan}
                   mobile={true}
                   returnBook={returnBook}
                   renewLoan={renewLoan}
-                /> */}
+                />
               </div>
             ))}
           </>
         ) : (
           <>
             <h3 className='mt-3'>Currently no loans</h3>
-            <Link className='btn btn-primary' to={`search`}>
+            <Link className='btn btn-secondary' to={`search`}>
               Search for a new book
             </Link>
           </>

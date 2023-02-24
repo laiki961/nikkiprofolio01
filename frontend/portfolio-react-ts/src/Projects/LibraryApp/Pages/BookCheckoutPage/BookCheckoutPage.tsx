@@ -256,7 +256,7 @@ export const BookCheckoutPage = () => {
 
   return (
     <div>
-      <div className='container d-none d-lg-block'>
+      <div className='container d-none d-lg-block min-vh-100'>
         <div className='row mt-5'>
           <div className='col-sm-2 col-md-2'>
             {book?.img ? (
