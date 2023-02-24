@@ -1,0 +1,11 @@
+#restaurant {
+  min-height: 100vh;
+}
+
+.product-name {
+  text-align: center;
+}
+
+.product-price {
+  text-align: right;
+}

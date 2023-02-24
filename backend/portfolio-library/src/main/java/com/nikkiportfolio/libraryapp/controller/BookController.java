@@ -1,14 +1,17 @@
 package com.nikkiportfolio.libraryapp.controller;
 
 import com.nikkiportfolio.libraryapp.entity.Book;
+import com.nikkiportfolio.libraryapp.responsemodels.ShelfCurrentLoansResponse;
 import com.nikkiportfolio.libraryapp.service.BookService;
 import com.nikkiportfolio.libraryapp.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin("http://localhost:3000")
 @RestController
-@RequestMapping("/api/books")
+@RequestMapping("library/api/books")
 public class BookController {
     private BookService bookService;
 
@@ -16,6 +19,13 @@ public class BookController {
     public BookController(BookService bookService) {
         this.bookService = bookService;
     }
+
+    @GetMapping("/secure/currentloans")
+    public List<ShelfCurrentLoansResponse> currentLoansResponses(@RequestHeader(value = "Authorization") String token) throws Exception{
+        String userEmail = ExtractJWT.payloadJWTExtraction(token, "\"sub\"");
+        return bookService.currentLoans(userEmail);
+    }
+
 
     @GetMapping("/secure/currentloans/count")
     public int currentLoansCount(@RequestHeader(value = "Authorization") String token) {

@@ -18,8 +18,12 @@ import { SearchBooksPage } from "./Projects/LibraryApp/Pages/SearchBooksPage/Sea
 import { BookCheckoutPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/BookCheckoutPage";
 
 import { MenuPage } from "./Projects/Restaurant/Pages/MenuPage/MenuPage";
+//import { loader as productsLoader } from "./Projects/Restaurant/Pages/MenuPage/components/Menu/Menu";
 import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
-import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
+import { DetailsPage } from "./Projects/Restaurant/Pages/DetailsPage/DetailsPage";
+import { ReviewListPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/ReviewListPage/ReviewListPage";
+import { ShelfPage } from "./Projects/LibraryApp/Pages/ShelfPage/ShelfPage";
+// import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
   {
@@ -33,6 +37,7 @@ const router = createBrowserRouter([
         element: <LoginWidget config={oktaConfig} />,
       },
       { path: "/callback", element: <LoginCallback /> },
+
       {
         path: "weather",
         element: <WeatherRootLayout />,
@@ -60,14 +65,25 @@ const router = createBrowserRouter([
           { index: true, element: <LibraryHomePage /> },
           { path: "/library/search", element: <SearchBooksPage /> },
           { path: "/library/checkout/:bookId", element: <BookCheckoutPage /> },
+          { path: "/library/reviewlist/:bookId", element: <ReviewListPage /> },
+          {
+            path: "/library/shelf",
+            element: <ShelfPage />,
+          },
         ],
       },
       {
         path: "restaurant",
         element: <RestaurantRootLayout />,
         children: [
-          { index: true, element: <MenuPage /> },
-          { path: "/restaurant/:productId", element: <ProductDetailsPage /> },
+          {
+            index: true,
+            element: <MenuPage />,
+          },
+          {
+            path: "/restaurant/:productId",
+            element: <DetailsPage />,
+          },
         ],
       },
     ],

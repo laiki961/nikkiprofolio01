@@ -23,12 +23,19 @@ public class ProductServiceImpl implements ProductService {
     @Override
     public List<Product> getAllProducts(){
         List<ProductEntity> products = productRepository.findAll();
-        logger.debug(products.toString());
         List<Product> productList = new ArrayList<>();
         for(ProductEntity productEntity: products){
             productList.add(new Product(productEntity));
         }
         return productList;
     }
+
+//    @Override
+//    public List<Product> getProductsByCategory(String category){
+//        List<ProductEntity> products = productRepository.findByCategory(category);
+//        List<Product> productList = new ArrayList<>();
+//
+//        return productList;
+//    }
 
 }

@@ -9,7 +9,7 @@ function RestaurantNavbar() {
           Thai Awesome
         </Navbar.Brand>
         <Nav id={classes.shift}>
-          <Nav.Link href='/restaurant/menu'>Menu</Nav.Link>
+          <Nav.Link href='/restaurant'>Menu</Nav.Link>
           <Nav.Link href='/restaurant/reservation'>Reservation</Nav.Link>
         </Nav>
       </Container>

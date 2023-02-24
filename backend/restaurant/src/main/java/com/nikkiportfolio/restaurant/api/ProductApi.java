@@ -25,7 +25,6 @@ public class ProductApi {
     public List<ProductResponseDto> fetchAllProducts(){
         List<ProductResponseDto> responseDtos = new ArrayList<>();
         List<Product> products = productService.getAllProducts();
-        logger.debug(products.toString());
         for(Product product: products){
             ProductResponseDto dto = new ProductResponseDto(product);
             responseDtos.add(dto);
@@ -33,5 +32,15 @@ public class ProductApi {
         return responseDtos;
     }
 
+//    @GetMapping("/{category}")
+//    public List<ProductResponseDto> fetchProductsByCategory(@RequestParam (required = true) String category){
+//        List<ProductResponseDto> responseDtos = new ArrayList<>();
+//        List<Product> products = productService.getProductsByCategory(category);
+//        for(Product product: products){
+//            ProductResponseDto dto = new ProductResponseDto(product);
+//            responseDtos.add(dto);
+//        }
+//        return responseDtos;
+//    }
 
 }
