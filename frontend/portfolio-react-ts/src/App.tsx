@@ -23,6 +23,7 @@ import RestaurantRootLayout from "./Projects/Restaurant/Pages/Root";
 import { DetailsPage } from "./Projects/Restaurant/Pages/DetailsPage/DetailsPage";
 import { ReviewListPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/ReviewListPage/ReviewListPage";
 import { ShelfPage } from "./Projects/LibraryApp/Pages/ShelfPage/ShelfPage";
+import { MessagesPage } from "./Projects/LibraryApp/Pages/MessagesPage/MessagesPage";
 // import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
@@ -69,6 +70,10 @@ const router = createBrowserRouter([
           {
             path: "/library/shelf",
             element: <ShelfPage />,
+          },
+          {
+            path: "/library/messages",
+            element: <MessagesPage />,
           },
         ],
       },
