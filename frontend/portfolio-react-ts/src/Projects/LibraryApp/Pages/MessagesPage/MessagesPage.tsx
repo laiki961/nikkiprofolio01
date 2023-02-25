@@ -1,6 +1,7 @@
 import { useOktaAuth } from "@okta/okta-react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { Messages } from "./components/Messages";
 import { PostNewMessage } from "./components/PostNewMessage";
 
 export const MessagesPage = () => {
@@ -8,7 +9,7 @@ export const MessagesPage = () => {
   const [messagesClick, setMessagesClick] = useState(false);
 
   return authState?.isAuthenticated ? (
-    <div className='container'>
+    <div className='container min-vh-100'>
       <div className='mt-3 mb-2'>
         <nav>
           <div className='nav nav-tabs' id='nav-tab' role='tablist'>
@@ -55,7 +56,7 @@ export const MessagesPage = () => {
             role='tabpanel'
             aria-labelledby='nav-message-tab'
           >
-            {/* {messagesClick ? <Messages/> : <></>} */}
+            {messagesClick ? <Messages /> : <></>}
           </div>
         </div>
       </div>
