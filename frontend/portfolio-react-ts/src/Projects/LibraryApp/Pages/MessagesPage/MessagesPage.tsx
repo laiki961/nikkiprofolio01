@@ -62,6 +62,6 @@ export const MessagesPage = () => {
       </div>
     </div>
   ) : (
-    <Navigate to={"/"} />
+    <Navigate to='/login' />
   );
 };
