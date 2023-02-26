@@ -1,8 +1,8 @@
 import { useOktaAuth } from "@okta/okta-react";
 import { useState } from "react";
 import { Navigate } from "react-router-dom";
+import { AdminMessages } from "./components/AdminMessages";
 // import { AddNewBook } from "./components/AddNewBook";
-// import { AdminMessages } from "./components/AdminMessages";
 // import { ChangeQuantityOfBooks } from "./components/ChangeQuantityOfBooks";
 
 export const ManageLibraryPage = () => {
@@ -104,8 +104,7 @@ export const ManageLibraryPage = () => {
             role='tabpanel'
             aria-labelledby='nav-messages-tab'
           >
-            {messagesClick ? <>Admin Messages</> : <></>}
-            {/* {messagesClick ? <AdminMessages /> : <></>} */}
+            {messagesClick ? <AdminMessages /> : <></>}
           </div>
         </div>
       </div>

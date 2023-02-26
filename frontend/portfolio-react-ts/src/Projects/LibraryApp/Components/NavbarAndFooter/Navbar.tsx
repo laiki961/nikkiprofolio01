@@ -1,17 +1,17 @@
-import { Link, NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useOktaAuth } from "@okta/okta-react";
 import Loading from "../../../../Layouts/components/Loading/Loading";
 
 export const Navbar = () => {
-  const { oktaAuth, authState } = useOktaAuth();
+  const { authState } = useOktaAuth();
 
   if (!authState) {
     return <Loading />;
   }
 
-  const handleLogout = async () => {
-    oktaAuth.signOut();
-  };
+  // const handleLogout = async () => {
+  //   oktaAuth.signOut();
+  // };
 
   console.log(authState);
 

@@ -9,4 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 public interface MessageRepository extends JpaRepository<Message, Long> {
     Page<Message> findByUserEmail(@RequestParam("user_email") String userEmail, Pageable pageable);
+
+    //Admin need to see the messages that have not yet response
+    Page<Message> findByClosed(@RequestParam("closed") boolean closed, Pageable pageable);
 }
