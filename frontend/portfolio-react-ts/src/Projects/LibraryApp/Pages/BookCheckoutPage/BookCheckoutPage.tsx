@@ -166,41 +166,44 @@ export const BookCheckoutPage = () => {
     });
   }, [authState, isCheckedOut]);
 
-  // useEffect(() => {
-  //   const fetchUserCheckedOutBook = async () => {
-  //     if (authState && authState.isAuthenticated) {
-  //       const url = `${process.env.REACT_APP_LIBRARY_API}/books/secure/ischeckedout/byuser/?bookId=${bookId}`;
-  //       const requestOptions = {
-  //         method: "GET",
-  //         headers: {
-  //           Authorization: `Bearer ${authState.accessToken?.accessToken}`,
-  //           "Content-Type": "application/json",
-  //         },
-  //       };
-  //       const bookCheckedOut = await fetch(url, requestOptions);
-  //       if (!bookCheckedOut.ok) {
-  //         throw new Error("Something went wrong!");
-  //       }
-  //       const bookCheckedOutResponseJson = await bookCheckedOut.json();
-  //       setIsCheckedOut(bookCheckedOutResponseJson);
-  //     }
-  //     setIsLoadingBookCheckedOut(false);
-  //   };
-  //   fetchUserCheckedOutBook().catch((error: any) => {
-  //     setIsLoadingBookCheckedOut(false);
-  //     setHttpError(error.message);
-  //   });
-  // }, [authState]);
+  useEffect(() => {
+    const fetchUserCheckedOutBook = async () => {
+      if (authState && authState.isAuthenticated) {
+        const url = `${process.env.REACT_APP_LIBRARY_API}/books/secure/ischeckedout/byuser/?bookId=${bookId}`;
+        const requestOptions = {
+          method: "GET",
+          headers: {
+            Authorization: `Bearer ${authState.accessToken?.accessToken}`,
+            "Content-Type": "application/json",
+          },
+        };
+        const bookCheckedOut = await fetch(url, requestOptions);
+        if (!bookCheckedOut.ok) {
+          throw new Error("Something went wrong!");
+        }
+        const bookCheckedOutResponseJson = await bookCheckedOut.json();
+        setIsCheckedOut(bookCheckedOutResponseJson);
+      }
+      setIsLoadingBookCheckedOut(false);
+    };
+    fetchUserCheckedOutBook().catch((error: any) => {
+      setIsLoadingBookCheckedOut(false);
+      setHttpError(error.message);
+    });
+  }, [authState, isCheckedOut]);
 
   if (
     isLoading ||
     isLoadingReview ||
-    isLoadingCurrentLoansCount
-    //||
-    // isLoadingBookCheckedOut ||
-    // isLoadingUserReview
+    isLoadingCurrentLoansCount ||
+    isLoadingBookCheckedOut ||
+    isLoadingUserReview
   ) {
-    return <Loading />;
+    return (
+      <div className='container d-none d-lg-block min-vh-100'>
+        <Loading />
+      </div>
+    );
   }
 
   if (httpError) {
