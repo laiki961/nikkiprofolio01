@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { AddNewBook } from "./components/AddNewBook";
 import { AdminMessages } from "./components/AdminMessages";
+import { ChangeQuantityOfBooks } from "./components/ChangeQuantityOfBooks";
 // import { AddNewBook } from "./components/AddNewBook";
 // import { ChangeQuantityOfBooks } from "./components/ChangeQuantityOfBooks";
 
@@ -95,8 +96,7 @@ export const ManageLibraryPage = () => {
             role='tabpanel'
             aria-labelledby='nav-quantity-tab'
           >
-            {changeQuantityOfBooksClick ? <>Change Quantity</> : <></>}
-            {/* {changeQuantityOfBooksClick ? <ChangeQuantityOfBooks /> : <></>} */}
+            {changeQuantityOfBooksClick ? <ChangeQuantityOfBooks /> : <></>}
           </div>
           <div
             className='tab-pane fade'

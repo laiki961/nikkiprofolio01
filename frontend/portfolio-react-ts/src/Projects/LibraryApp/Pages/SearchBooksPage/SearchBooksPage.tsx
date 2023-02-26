@@ -4,7 +4,6 @@ import BookModel from "../../Models/BookModel";
 import { Pagination } from "../../Utils/Pagination";
 import Loading from "../../../../Layouts/components/Loading/Loading";
 import { SearchBook } from "./components/SearchBook";
-import { useOktaAuth } from "@okta/okta-react";
 
 export const SearchBooksPage = () => {
   const [books, setBooks] = useState<BookModel[]>([]);
@@ -18,12 +17,9 @@ export const SearchBooksPage = () => {
   const [searchUrl, setSearchUrl] = useState("");
   const [categorySelection, setCategorySelection] = useState("Book category");
 
-  // const { authState } = useOktaAuth();
-  // console.log(authState);
-
   useEffect(() => {
     const fetchBooks = async () => {
-      const baseUrl: string = "http://localhost:8080/library/api/books";
+      const baseUrl: string = `${process.env.REACT_APP_LIBRARY_API}/books`;
       let url: string = "";
 
       if (searchUrl === "") {
@@ -67,12 +63,16 @@ export const SearchBooksPage = () => {
   }, [currentPage, searchUrl]);
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <div className='container m-5 min-vh-100'>
+        <Loading />
+      </div>
+    );
   }
 
   if (httpError) {
     return (
-      <div className='container m-5'>
+      <div className='container m-5 min-vh-100'>
         <p>{httpError}</p>
       </div>
     );
