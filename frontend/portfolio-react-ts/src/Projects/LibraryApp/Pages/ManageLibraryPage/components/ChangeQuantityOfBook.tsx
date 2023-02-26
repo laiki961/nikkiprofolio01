@@ -19,6 +19,42 @@ export const ChangeQuantityOfBook: React.FC<{
     fetchBookInState();
   }, []);
 
+  async function increaseQuantity() {
+    const url = `http://localhost:8080/library/api/admin/secure/increase/book/quantity/?bookId=${props.book?.id}`;
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    const quantityUpdateResponse = await fetch(url, requestOptions);
+    if (!quantityUpdateResponse.ok) {
+      throw new Error("Something went wrong!");
+    }
+    setQuantity(quantity + 1);
+    setRemaining(remaining + 1);
+  }
+
+  async function decreaseQuantity() {
+    const url = `http://localhost:8080/library/api/admin/secure/decrease/book/quantity/?bookId=${props.book?.id}`;
+    const requestOptions = {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${authState?.accessToken?.accessToken}`,
+        "Content-Type": "application/json",
+      },
+    };
+
+    const quantityUpdateResponse = await fetch(url, requestOptions);
+    if (!quantityUpdateResponse.ok) {
+      throw new Error("Something went wrong!");
+    }
+    setQuantity(quantity - 1);
+    setRemaining(remaining - 1);
+  }
+
   return (
     <div className='card mt-3 shadow p-3 mb-3 bg-body rounded'>
       <div className='row g-0'>
@@ -72,10 +108,18 @@ export const ChangeQuantityOfBook: React.FC<{
             <button className='m-1 btn btn-md btn-danger'>Delete</button>
           </div>
         </div>
-        <button className='m1 btn btn-md btn-secondary text-white'>
+        <button
+          className='m1 btn btn-md btn-secondary text-white'
+          onClick={increaseQuantity}
+        >
           Add Quantity
         </button>
-        <button className='m1 btn btn-md btn-warning'>Decrease Quantity</button>
+        <button
+          className='m1 btn btn-md btn-warning'
+          onClick={decreaseQuantity}
+        >
+          Decrease Quantity
+        </button>
       </div>
     </div>
   );
