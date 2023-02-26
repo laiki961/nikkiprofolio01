@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import MessageModel from "../../../Models/MessageModel";
 import { Pagination } from "../../../Utils/Pagination";
 import Loading from "../../../../../Layouts/components/Loading/Loading";
+import { AdminMessage } from "./AdminMessage";
 // import { SpinnerLoading } from '../../Utils/SpinnerLoading';
 // import { AdminMessage } from './AdminMessage';
 
@@ -103,12 +104,11 @@ export const AdminMessages = () => {
         <>
           <h5>Pending Q/A: </h5>
           {messages.map((message) => (
-            <p>Questions that need a response</p>
-            // <AdminMessage
-            //   message={message}
-            //   key={message.id}
-            //   submitResponseToQuestion={submitResponseToQuestion}
-            // />
+            <AdminMessage
+              message={message}
+              key={message.id}
+              // submitResponseToQuestion={submitResponseToQuestion}
+            />
           ))}
         </>
       ) : (
