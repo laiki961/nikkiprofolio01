@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import BookModel from "../../../Models/BookModel";
 import Loading from "../../../../../Layouts/components/Loading/Loading";
 import { Pagination } from "../../../Utils/Pagination";
+import { ChangeQuantityOfBook } from "./ChangeQuantityOfBook";
 // import { ChangeQuantityOfBook } from "./ChangeQuantityOfBook";
 
 export const ChangeQuantityOfBooks = () => {
@@ -89,12 +90,7 @@ export const ChangeQuantityOfBooks = () => {
             {indexOfFirstBook + 1} to {lastItem} of {totalAmountOfBooks} items:
           </p>
           {books.map((book) => (
-            <p>Display different quantity of books</p>
-            // <ChangeQuantityOfBook
-            //   book={book}
-            //   key={book.id}
-            //   deleteBook={deleteBook}
-            // />
+            <ChangeQuantityOfBook book={book} key={book.id} />
           ))}
         </>
       ) : (
