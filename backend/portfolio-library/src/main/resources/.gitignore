@@ -1,2 +1,5 @@
-/nikki-keystore.p12
 /application.properties
+/nikki-keystore.p12
+
+
+*.properties
