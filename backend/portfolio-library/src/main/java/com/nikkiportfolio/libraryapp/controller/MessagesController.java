@@ -7,9 +7,9 @@ import com.nikkiportfolio.libraryapp.utils.ExtractJWT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-@CrossOrigin("http://localhost:3000")
+@CrossOrigin("https://localhost:3000")
 @RestController
-@RequestMapping("library/api/messages")
+@RequestMapping("/library/api/messages")
 public class MessagesController {
     private MessagesService messagesService;
 
