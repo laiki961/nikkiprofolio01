@@ -21,6 +21,7 @@ export const AddNewBook = () => {
     setCategory(value);
   }
 
+  //Allow user to upload an image and convert the image into a base64 so that it can be send over to the spring boot application
   async function base64ConversionForImages(e: any) {
     if (e.target.files[0]) {
       getBase64(e.target.files[0]);
@@ -39,7 +40,7 @@ export const AddNewBook = () => {
   }
 
   async function submitNewBook() {
-    const url = `http://localhost:8080/api/admin/secure/add/book`;
+    const url = `http://localhost:8080/library/api/admin/secure/add/book`;
     if (
       authState?.isAuthenticated &&
       title !== "" &&
