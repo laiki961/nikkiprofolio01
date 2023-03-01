@@ -25,6 +25,7 @@ import { ReviewListPage } from "./Projects/LibraryApp/Pages/BookCheckoutPage/Rev
 import { ShelfPage } from "./Projects/LibraryApp/Pages/ShelfPage/ShelfPage";
 import { MessagesPage } from "./Projects/LibraryApp/Pages/MessagesPage/MessagesPage";
 import { ManageLibraryPage } from "./Projects/LibraryApp/Pages/ManageLibraryPage/ManageLibraryPage";
+import { PaymentPage } from "./Projects/LibraryApp/Pages/PaymentPage/PaymentPage";
 // import { Details as ProductDetailsPage } from "./Projects/Restaurant/Pages/ProductDetailsPage/Details";
 
 const router = createBrowserRouter([
@@ -79,6 +80,10 @@ const router = createBrowserRouter([
           {
             path: "/library/admin",
             element: <ManageLibraryPage />,
+          },
+          {
+            path: "/library/payment",
+            element: <PaymentPage />,
           },
         ],
       },

@@ -32,6 +32,9 @@ export const BookCheckoutPage = () => {
   const [isCheckedOut, setIsCheckedOut] = useState(false);
   const [isLoadingBookCheckedOut, setIsLoadingBookCheckedOut] = useState(true);
 
+  // Payment
+  const [displayError, setDisplayError] = useState(false);
+
   const bookId = window.location.pathname.split("/")[3];
 
   useEffect(() => {
@@ -164,6 +167,7 @@ export const BookCheckoutPage = () => {
       setIsLoadingCurrentLoansCount(false);
       setHttpError(error.message);
     });
+    window.scrollTo(0, 0);
   }, [authState, isCheckedOut]);
 
   useEffect(() => {
@@ -225,8 +229,10 @@ export const BookCheckoutPage = () => {
     };
     const checkoutResponse = await fetch(url, requestOptions);
     if (!checkoutResponse.ok) {
+      setDisplayError(true);
       throw new Error("Something went wrong!");
     }
+    setDisplayError(false);
     setIsCheckedOut(true);
   }
 
@@ -260,6 +266,11 @@ export const BookCheckoutPage = () => {
   return (
     <div>
       <div className='container d-none d-lg-block min-vh-100'>
+        {displayError && (
+          <div className='alert alert-danger mt-3' role='alert'>
+            Please pay outstanding fees and/or return late books(s).
+          </div>
+        )}
         <div className='row mt-5'>
           <div className='col-sm-2 col-md-2'>
             {book?.img ? (
@@ -297,6 +308,11 @@ export const BookCheckoutPage = () => {
       </div>
       {/* Mobile App */}
       <div className='container d-lg-none mt-5'>
+        {displayError && (
+          <div className='alert alert-danger mt-3' role='alert'>
+            Please pay outstanding fees and/or return late books(s).
+          </div>
+        )}
         <div className='d-flex justify-content-center alighn-items-center'>
           {book?.img ? (
             <img src={book?.img} width='226' height='349' alt='Book' />

@@ -4,9 +4,6 @@ import { Navigate } from "react-router-dom";
 import { HistoryPage } from "./components/HistoryPage";
 import { Loans } from "./components/Loans";
 
-// import { HistoryPage } from "./components/HistoryPage";
-// import { Loans } from "./components/Loans";
-
 export const ShelfPage = () => {
   const [historyClick, setHistoryClick] = useState(false);
 
