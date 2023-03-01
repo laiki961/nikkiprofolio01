@@ -152,7 +152,6 @@ public class BookService {
 
         bookRepository.save(book.get());
 
-
         // Ask for payment if user return the book after the agreed date
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date d1 = sdf.parse(validateCheckout.getReturnDate());

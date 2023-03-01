@@ -1,6 +1,6 @@
 DROP TABLE IF EXISTS `payment`;
-/*! 40101 SET @saved_cs_client = @@character_set_client */;
-/*! 40101 SET character_set_client = utf */;
+/*!40101 SET @saved_cs_client = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `payment` (
 `id` BIGINT(20) NOT NULL AUTO_INCREMENT,
 `user_email` VARCHAR(45) DEFAULT NULL,
