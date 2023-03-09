@@ -26,9 +26,14 @@ const useHttp = () => {
     setIsLoading(false);
   }, []);
 
+  const resetErrorHandler = () => {
+    setError(false);
+  };
+
   return {
     isLoading,
     error,
+    resetErrorHandler,
     sendRequest,
   };
 };
